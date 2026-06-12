@@ -2,666 +2,2222 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>🖌️ 漢字検定1級クイズ【弐】</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>漢字検定1級クイズ【弐】</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;700;900&family=Shippori+Mincho:wght@600;800&family=Noto+Sans+JP:wght@400;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
-<script src="https://pecpec37-gift.github.io/portal/stamp.js"></script>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600;700;800&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
 <style>
-:root{
-  --bg:#13110d;--bg2:#1b1813;--surface:#252019;--surface2:#322b20;
-  --border:rgba(201,162,39,0.20);
-  --red:#a0341f;--red2:#c0392b;--red3:#e8a99c;
-  --gold:#9a7b1f;--gold2:#c9a227;--gold3:#ecc94b;
-  --crimson:#d9533f;
-  --green:#3fae7a;--blue:#5aa9d6;
-  --text:#f5efe2;--text2:rgba(245,239,226,0.72);--text3:rgba(245,239,226,0.42);
-  --radius:6px;
-}
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;text-size-adjust:100%;overflow-x:hidden;background:var(--bg);}
-body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden;width:100%;max-width:100%;position:relative;}
-body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse at 12% 8%,rgba(201,162,39,0.10) 0%,transparent 52%),radial-gradient(ellipse at 88% 92%,rgba(192,57,43,0.10) 0%,transparent 52%);pointer-events:none;z-index:0;}
-.screen{display:none;position:relative;z-index:1;}.screen.active{display:block;}
-#screen-top{min-height:100vh;}
-.top-hero{background:linear-gradient(160deg,#241c12 0%,#13110d 55%,#0b0906 100%);padding:52px 24px 44px;text-align:center;border-bottom:1px solid var(--border);position:relative;overflow:hidden;}
-.top-hero::before{content:'龍';position:absolute;right:-6px;bottom:-34px;font-family:'Shippori Mincho',serif;font-size:230px;font-weight:800;opacity:0.045;pointer-events:none;color:var(--gold3);}
-.top-hero::after{content:'鬱';position:absolute;left:8px;top:0px;font-family:'Shippori Mincho',serif;font-size:140px;font-weight:800;opacity:0.045;pointer-events:none;color:var(--red3);}
-.top-eyebrow{font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:0.22em;color:var(--gold2);text-transform:uppercase;margin-bottom:12px;}
-.top-title{font-family:'Shippori Mincho',serif;font-weight:800;font-size:clamp(30px,6.5vw,56px);line-height:1.12;color:var(--text);margin-bottom:8px;letter-spacing:0.04em;}
-.top-title span{color:var(--gold3);}
-.top-sub{font-size:13px;color:var(--text2);letter-spacing:0.06em;margin-bottom:28px;}
-.top-rule{display:inline-block;background:rgba(192,57,43,0.07);border:1px solid rgba(201,162,39,0.22);border-radius:6px;padding:14px 20px;text-align:left;font-size:12px;line-height:2;color:var(--text2);}
-.top-rule strong{color:var(--gold3);}
-.genres-wrap{max-width:920px;margin:0 auto;padding:32px 20px 20px;}
-.genres-label{font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:0.2em;color:var(--text3);text-transform:uppercase;margin-bottom:16px;display:flex;align-items:center;gap:10px;}
-.genres-label::after{content:'';flex:1;height:1px;background:var(--border);}
-.genres-hint{font-size:12px;color:var(--gold3);background:rgba(201,162,39,0.08);border:1px solid rgba(201,162,39,0.22);border-radius:4px;padding:8px 14px;margin-bottom:20px;text-align:center;letter-spacing:0.04em;}
-.genres-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px;margin-bottom:24px;}
-.genre-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px 18px;cursor:pointer;transition:transform 0.12s,box-shadow 0.12s,border-color 0.12s;position:relative;overflow:hidden;}
-.genre-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(201,162,39,0.08),transparent);opacity:0;transition:opacity 0.15s;}
-.genre-card:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(0,0,0,0.5),0 0 20px rgba(201,162,39,0.12);border-color:rgba(201,162,39,0.5);}
-.genre-card:hover::before{opacity:1;}
-.genre-accent{position:absolute;top:0;left:0;right:0;height:3px;border-radius:6px 6px 0 0;}
-.genre-icon{font-size:30px;line-height:1;margin-bottom:8px;display:block;}
-.genre-name{font-family:'Zen Kaku Gothic New',sans-serif;font-weight:900;font-size:16px;margin-bottom:4px;color:var(--text);}
-.genre-desc{font-size:11px;color:var(--text3);margin-bottom:4px;line-height:1.6;}
-.genre-count{font-family:'Share Tech Mono',monospace;font-size:10px;color:var(--text3);letter-spacing:0.1em;}
-.genre-start{position:absolute;top:14px;right:14px;font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:0.1em;color:var(--gold2);opacity:0;transition:opacity 0.15s;}
-.genre-card:hover .genre-start{opacity:1;}
-.ranking-btn-wrap{text-align:center;padding:8px 0 36px;}
-.ranking-btn{font-family:'Share Tech Mono',monospace;font-size:11px;letter-spacing:0.12em;padding:10px 24px;background:none;border:1px solid var(--border);color:var(--text3);border-radius:3px;cursor:pointer;transition:all 0.15s;}
-.ranking-btn:hover{border-color:var(--gold3);color:var(--gold3);}
-#screen-intro{min-height:100vh;display:none;flex-direction:column;align-items:center;justify-content:center;padding:40px 24px;}
-#screen-intro.active{display:flex;}
-.intro-box{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:32px 28px;width:100%;max-width:420px;text-align:center;}
-.intro-icon{font-size:52px;margin-bottom:10px;display:block;}
-.intro-name{font-family:'Zen Kaku Gothic New',sans-serif;font-weight:900;font-size:24px;margin-bottom:4px;color:var(--gold3);}
-.intro-desc{font-size:12px;color:var(--text3);margin-bottom:20px;line-height:1.7;}
-.intro-rule{font-size:12px;line-height:1.9;color:var(--text2);text-align:left;background:rgba(192,57,43,0.06);border-radius:6px;padding:12px 14px;margin-bottom:20px;}
-.intro-rule strong{color:var(--gold3);}
-.name-label{font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:0.18em;color:var(--text3);text-transform:uppercase;margin-bottom:6px;text-align:left;}
-.name-input{width:100%;background:var(--bg2);border:1px solid var(--border);border-radius:6px;padding:10px 14px;color:var(--text);font-family:'Noto Sans JP',sans-serif;font-size:14px;margin-bottom:16px;outline:none;transition:border-color 0.15s;}
-.name-input:focus{border-color:var(--red2);}
-.name-input::placeholder{color:var(--text3);}
-.start-btn{width:100%;padding:14px;background:var(--red2);color:#fff;font-family:'Zen Kaku Gothic New',sans-serif;font-weight:900;font-size:16px;border:none;border-radius:6px;cursor:pointer;transition:background 0.15s,transform 0.1s;letter-spacing:0.04em;}
-.start-btn:hover{background:var(--crimson);}
-.start-btn:active{transform:scale(0.98);}
-.back-link{margin-top:14px;font-family:'Share Tech Mono',monospace;font-size:11px;color:var(--text3);cursor:pointer;transition:color 0.15s;background:none;border:none;}
-.back-link:hover{color:var(--text);}
-#screen-quiz{min-height:100vh;}
-.quiz-header{background:var(--bg2);border-bottom:1px solid var(--border);padding:12px 20px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;position:sticky;top:0;z-index:10;}
-.quiz-progress{flex:1;height:3px;background:rgba(201,162,39,0.15);border-radius:2px;overflow:hidden;min-width:30px;}
-.quiz-progress-fill{height:100%;background:linear-gradient(90deg,var(--red2),var(--gold2));border-radius:2px;transition:width 0.3s;}
-.quiz-qnum{font-family:'Share Tech Mono',monospace;font-size:11px;color:var(--text3);white-space:nowrap;letter-spacing:0.08em;}
-.quiz-score{font-family:'Share Tech Mono',monospace;font-size:13px;color:var(--gold3);white-space:nowrap;}
-.quiz-timer-wrap{display:flex;align-items:center;gap:5px;}
-.quiz-timer{font-family:'Zen Kaku Gothic New',sans-serif;font-weight:900;font-size:22px;color:var(--gold3);min-width:40px;text-align:right;transition:color 0.3s;}
-.quiz-timer.danger{color:#e0524a;animation:pulse 0.5s infinite alternate;}
-@keyframes pulse{from{opacity:1;}to{opacity:0.5;}}
-.quiz-timer-label{font-family:'Share Tech Mono',monospace;font-size:9px;color:var(--text3);letter-spacing:0.1em;}
-.quiz-body{max-width:640px;margin:0 auto;padding:28px 20px 40px;width:100%;}
-#quiz-choices{max-width:100%;}
-.quiz-type-badge{font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:0.16em;padding:3px 10px;border-radius:3px;display:inline-block;margin-bottom:14px;text-transform:uppercase;}
-.quiz-type-badge.type-4{background:rgba(192,57,43,0.16);color:var(--red3);}
-.quiz-type-badge.type-ox{background:rgba(201,162,39,0.16);color:var(--gold3);}
-.quiz-q{font-family:'Zen Kaku Gothic New',sans-serif;font-weight:700;font-size:clamp(16px,4vw,20px);line-height:1.7;margin-bottom:22px;color:var(--text);max-width:100%;overflow-wrap:break-word;word-break:break-word;line-break:strict;}
-.quiz-q .yoji{font-family:'Shippori Mincho',serif;font-weight:800;color:var(--gold3);letter-spacing:0.12em;}
-.choices{display:flex;flex-direction:column;gap:10px;}
-.choice-btn{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px 18px;text-align:left;font-family:'Noto Sans JP',sans-serif;font-size:15px;color:var(--text);cursor:pointer;transition:all 0.12s;display:flex;align-items:center;gap:12px;width:100%;min-width:0;overflow-wrap:break-word;word-break:break-word;}
-.choice-btn:hover:not(:disabled){background:var(--surface2);border-color:rgba(201,162,39,0.5);transform:translateX(4px);}
-.choice-btn:disabled{cursor:default;}
-.choice-btn.correct{background:rgba(63,174,122,0.16);border-color:#3fae7a;color:#7ed3a8;}
-.choice-btn.wrong{background:rgba(224,82,74,0.14);border-color:#e0524a;color:#f0958e;}
-.choice-label{font-family:'Share Tech Mono',monospace;font-size:11px;color:var(--text3);min-width:20px;}
-.ox-choices{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
-.ox-btn{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:28px 16px;font-size:38px;cursor:pointer;transition:all 0.12s;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:6px;min-width:0;}
-.ox-btn span{font-family:'Share Tech Mono',monospace;font-size:10px;color:var(--text3);letter-spacing:0.1em;}
-.ox-btn:hover:not(:disabled){transform:scale(1.03);border-color:rgba(201,162,39,0.5);}
-.ox-btn:disabled{cursor:default;}
-.ox-btn.correct{background:rgba(63,174,122,0.16);border-color:#3fae7a;}
-.ox-btn.wrong{background:rgba(224,82,74,0.14);border-color:#e0524a;}
-.feedback-bar{margin-top:14px;padding:12px 16px;border-radius:6px;font-size:13px;font-weight:700;opacity:0;transition:opacity 0.2s;min-height:44px;}
-.feedback-bar.show{opacity:1;}
-.feedback-bar.ok{background:rgba(63,174,122,0.1);color:#7ed3a8;border:1px solid rgba(63,174,122,0.28);}
-.feedback-bar.ng{background:rgba(224,82,74,0.08);color:#f0958e;border:1px solid rgba(224,82,74,0.22);}
-.feedback-mean{display:block;margin-top:6px;font-weight:400;font-size:12px;color:var(--text2);line-height:1.6;}
-.next-btn{margin-top:14px;width:100%;padding:12px;background:var(--red2);color:#fff;font-family:'Zen Kaku Gothic New',sans-serif;font-weight:900;font-size:15px;border:none;border-radius:6px;cursor:pointer;transition:background 0.15s;display:none;}
-.next-btn.show{display:block;}
-.next-btn:hover{background:var(--crimson);}
-#screen-result{min-height:100vh;display:none;flex-direction:column;align-items:center;padding:40px 20px 60px;}
-#screen-result.active{display:flex;}
-.result-box{width:100%;max-width:520px;}
-.result-genre{font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:0.2em;color:var(--text3);text-transform:uppercase;margin-bottom:8px;text-align:center;}
-.result-score-wrap{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:28px;text-align:center;margin-bottom:20px;}
-.result-medal{font-size:48px;margin-bottom:8px;display:block;}
-.result-score{font-family:'Zen Kaku Gothic New',sans-serif;font-weight:900;font-size:64px;line-height:1;color:var(--gold3);}
-.result-score-label{font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:0.16em;color:var(--text3);margin-bottom:16px;text-transform:uppercase;}
-.result-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:16px;}
-.result-stat{background:var(--bg2);border-radius:6px;padding:12px 8px;text-align:center;}
-.result-stat-val{font-family:'Zen Kaku Gothic New',sans-serif;font-weight:900;font-size:24px;color:var(--gold3);}
-.result-stat-val.green{color:#7ed3a8;}
-.result-stat-val.gold{color:var(--gold3);}
-.result-stat-label{font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:0.1em;color:var(--text3);margin-top:2px;}
-.result-actions{display:flex;gap:10px;margin-bottom:24px;}
-.result-btn{flex:1;padding:12px;font-family:'Zen Kaku Gothic New',sans-serif;font-weight:700;font-size:14px;border-radius:6px;cursor:pointer;transition:all 0.15s;}
-.result-btn-primary{background:var(--red2);color:#fff;border:none;}
-.result-btn-primary:hover{background:var(--crimson);}
-.result-btn-secondary{background:none;color:var(--text2);border:1px solid var(--border);}
-.result-btn-secondary:hover{border-color:var(--gold2);color:var(--gold2);}
-.wrong-section{width:100%;max-width:520px;}
-.wrong-label{font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:0.18em;color:var(--text3);text-transform:uppercase;margin-bottom:14px;padding-bottom:8px;border-bottom:1px solid var(--border);}
-.wrong-item{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:16px;margin-bottom:10px;}
-.wrong-item-num{font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:0.14em;color:var(--text3);margin-bottom:6px;}
-.wrong-item-q{font-size:14px;line-height:1.6;color:var(--text);margin-bottom:10px;font-weight:700;}
-.wrong-item-q .yoji{font-family:'Shippori Mincho',serif;color:var(--gold3);letter-spacing:0.1em;}
-.wrong-item-ans{display:flex;align-items:flex-start;gap:8px;font-size:13px;}
-.wrong-item-ans-label{font-family:'Share Tech Mono',monospace;font-size:9px;color:var(--green);background:rgba(63,174,122,0.1);padding:2px 7px;border-radius:2px;white-space:nowrap;margin-top:1px;}
-.wrong-item-ans-text{color:#7ed3a8;line-height:1.5;}
-.wrong-item-mean{margin-top:8px;font-size:12px;color:var(--text2);line-height:1.6;padding-left:2px;border-left:2px solid var(--border);padding-left:10px;}
-.portal-back{display:block;text-align:center;margin-top:28px;font-family:'Share Tech Mono',monospace;font-size:12px;letter-spacing:0.1em;color:var(--text3);text-decoration:none;padding:10px 20px;border:1px solid var(--border);border-radius:3px;transition:all 0.15s;}
-.portal-back:hover{border-color:var(--gold2);color:var(--gold2);}
-#screen-ranking{min-height:100vh;padding:40px 20px 60px;}
-.ranking-wrap{max-width:600px;margin:0 auto;}
-.ranking-top{display:flex;align-items:center;gap:12px;margin-bottom:24px;}
-.ranking-title{font-family:'Zen Kaku Gothic New',sans-serif;font-weight:900;font-size:22px;color:var(--gold3);flex:1;}
-.ranking-back{font-family:'Share Tech Mono',monospace;font-size:11px;color:var(--text3);background:none;border:1px solid var(--border);border-radius:3px;padding:6px 14px;cursor:pointer;transition:all 0.15s;}
-.ranking-back:hover{border-color:var(--gold3);color:var(--gold3);}
-.ranking-tabs{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;margin-bottom:20px;border-bottom:1px solid var(--border);}
-.ranking-tabs::-webkit-scrollbar{display:none;}
-.ranking-tab{flex-shrink:0;font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:0.1em;padding:10px 12px;background:none;border:none;border-bottom:2px solid transparent;color:var(--text3);cursor:pointer;transition:all 0.15s;white-space:nowrap;}
-.ranking-tab.active{color:var(--red3);border-bottom-color:var(--red2);}
-.ranking-list{display:flex;flex-direction:column;gap:6px;}
-.ranking-empty{font-family:'Share Tech Mono',monospace;font-size:11px;color:var(--text3);text-align:center;padding:32px;letter-spacing:0.1em;}
-.ranking-row{display:flex;align-items:center;gap:12px;background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:12px 16px;}
-.ranking-row.top1{border-color:rgba(201,162,39,0.5);background:rgba(201,162,39,0.05);}
-.ranking-row.top2{border-color:rgba(200,200,200,0.25);}
-.ranking-row.top3{border-color:rgba(180,100,30,0.3);}
-.ranking-pos{font-family:'Zen Kaku Gothic New',sans-serif;font-weight:900;font-size:18px;min-width:28px;color:var(--text3);}
-.ranking-pos.gold{color:#c9a227;}.ranking-pos.silver{color:#9ca3af;}.ranking-pos.bronze{color:#b45309;}
-.ranking-name{flex:1;font-size:14px;font-weight:700;color:var(--text);}
-.ranking-score{font-family:'Zen Kaku Gothic New',sans-serif;font-weight:900;font-size:20px;color:var(--gold3);}
-.ranking-date{font-family:'Share Tech Mono',monospace;font-size:9px;color:var(--text3);margin-left:6px;}
-.ranking-del{font-size:11px;color:var(--text3);background:none;border:none;cursor:pointer;padding:4px 8px;margin-top:12px;font-family:'Share Tech Mono',monospace;letter-spacing:0.08em;transition:color 0.15s;}
-.ranking-del:hover{color:#e0524a;}
-#toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--bg2);color:var(--gold3);font-family:'Share Tech Mono',monospace;font-size:12px;padding:10px 20px;border-radius:6px;border:1px solid var(--gold2);z-index:9999;opacity:0;transition:all 0.3s;pointer-events:none;white-space:nowrap;}
-#toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
-.portal-fixed-btn{position:fixed;bottom:20px;left:20px;z-index:9999;display:inline-flex;align-items:center;gap:8px;padding:10px 18px;background:rgba(19,17,13,0.92);color:var(--gold3);font-family:'Share Tech Mono',monospace;font-size:12px;letter-spacing:0.08em;border-radius:4px;border:1px solid rgba(201,162,39,0.35);text-decoration:none;backdrop-filter:blur(6px);box-shadow:0 4px 16px rgba(0,0,0,0.5);transition:all 0.15s;white-space:nowrap;}
-.portal-fixed-btn:hover{background:rgba(19,17,13,0.98);border-color:rgba(201,162,39,0.7);transform:translateY(-1px);}
-@media(max-width:480px){.genres-grid{grid-template-columns:1fr 1fr;}.result-actions{flex-direction:column;}.portal-fixed-btn{bottom:14px;left:14px;padding:8px 14px;font-size:11px;}.quiz-header{padding:12px 14px;gap:10px;}.quiz-body{padding:24px 16px 40px;}.quiz-timer{font-size:20px;}}
-@media(max-width:360px){.genres-grid{grid-template-columns:1fr;}.ox-btn{padding:22px 10px;font-size:32px;}.quiz-header{gap:8px;}}
-/* ===== 早押し: タイプライター & バザー ===== */
-.cursor-blink{display:inline-block;width:3px;height:1.05em;background:var(--gold3);vertical-align:text-bottom;margin-left:2px;animation:caret 0.6s ease-in-out infinite;}
-@keyframes caret{0%,100%{opacity:1;}50%{opacity:0;}}
-.quiz-q{min-height:90px;}
-.buzzer-btn{margin-top:8px;width:100%;padding:18px;border:none;border-radius:8px;font-family:'Zen Kaku Gothic New',sans-serif;font-weight:900;font-size:18px;letter-spacing:0.05em;color:#fff;cursor:pointer;background:linear-gradient(90deg,var(--crimson),var(--red2));box-shadow:0 6px 24px rgba(192,57,43,0.4);animation:buzz 1s ease-in-out infinite;transition:transform 0.1s;}
-.buzzer-btn:active{transform:scale(0.96);animation:none;}
-@keyframes buzz{0%,100%{transform:scale(1);}50%{transform:scale(1.04);}}
-/* ===== 早押し: 正誤オーバーレイ ===== */
-.result-overlay{display:none;position:fixed;inset:0;z-index:9990;justify-content:center;align-items:center;padding:20px;}
-.result-overlay.show{display:flex;}
-.result-overlay::before{content:'';position:absolute;inset:0;background:rgba(10,8,4,0.86);backdrop-filter:blur(4px);}
-.result-box-ov{position:relative;z-index:1;background:var(--surface);border:2px solid var(--border);border-radius:14px;padding:30px 26px;max-width:430px;width:100%;text-align:center;animation:popIn 0.35s cubic-bezier(0.175,0.885,0.32,1.275);max-height:88vh;overflow-y:auto;}
-.result-box-ov.correct{border-color:var(--green);box-shadow:0 0 40px rgba(63,174,122,0.3);}
-.result-box-ov.incorrect{border-color:var(--crimson);box-shadow:0 0 40px rgba(217,83,63,0.3);}
-@keyframes popIn{from{transform:scale(0.6);opacity:0;}50%{transform:scale(1.08);}to{transform:scale(1);opacity:1;}}
-.result-emoji{font-size:50px;margin-bottom:6px;}
-.result-label-ov{font-family:'Zen Kaku Gothic New',sans-serif;font-weight:900;font-size:25px;margin-bottom:14px;}
-.result-box-ov.correct .result-label-ov{color:#7ed3a8;}
-.result-box-ov.incorrect .result-label-ov{color:#f0958e;}
-.result-ans-show{background:var(--bg2);border-radius:10px;padding:14px;margin-bottom:12px;text-align:left;}
-.result-ans-q{font-size:13px;color:var(--text2);line-height:1.7;margin-bottom:8px;}
-.result-ans-q .yoji{font-family:'Shippori Mincho',serif;font-weight:800;color:var(--gold3);letter-spacing:0.1em;}
-.result-ans-a{font-size:18px;font-weight:900;color:var(--gold3);font-family:'Shippori Mincho',serif;}
-.result-feedback{font-size:14px;color:var(--text2);line-height:1.7;margin-bottom:10px;}
-.result-feedback .hl{font-weight:900;}
-.result-feedback .hl.plus{color:#7ed3a8;}
-.result-feedback .hl.minus{color:#f0958e;}
-.result-mean{font-size:12.5px;color:var(--text2);line-height:1.7;background:rgba(201,162,39,0.08);border:1px solid var(--border);border-radius:8px;padding:10px 12px;margin-bottom:20px;text-align:left;}
-.result-mean:empty{display:none;}
-#ov-next-btn{margin-top:0;}
-#toast.ok{border-color:var(--green);color:#9be3bf;}
-#toast.ng{border-color:var(--crimson);color:#f0958e;}
+  :root{
+    --ink:#15110d;
+    --ink2:#211a12;
+    --ink3:#2c2418;
+    --gold:#d4af37;
+    --gold-soft:#e6c875;
+    --crimson:#b5292f;
+    --crimson-bright:#e0474d;
+    --paper:#f3ead6;
+    --paper-dim:#cdbf9e;
+    --green:#3f9d6b;
+    --shadow:rgba(0,0,0,.45);
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+  html,body{margin:0;padding:0;height:100%;}
+  body{
+    font-family:'Shippori Mincho','Noto Sans JP',serif;
+    background:var(--ink);
+    color:var(--paper);
+    min-height:100dvh;
+    overflow-x:hidden;
+    position:relative;
+  }
+  #bgCanvas{position:fixed;inset:0;width:100%;height:100%;z-index:0;opacity:.5;pointer-events:none;}
+  .wrap{
+    position:relative;z-index:1;
+    max-width:680px;margin:0 auto;
+    padding:clamp(12px,3.5vw,28px) clamp(12px,4vw,24px) 48px;
+    min-height:100dvh;
+  }
+  .screen{display:none;animation:fade .35s ease;}
+  .screen.active{display:block;}
+  @keyframes fade{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);}}
+
+  /* ===== Header / Title ===== */
+  .crest{
+    text-align:center;margin-bottom:clamp(14px,3vw,22px);
+  }
+  .crest .seal{
+    display:inline-block;font-size:clamp(13px,3vw,15px);letter-spacing:.3em;
+    color:var(--gold);border:1px solid var(--gold);border-radius:4px;
+    padding:4px 14px;margin-bottom:14px;background:rgba(212,175,55,.06);
+  }
+  h1{
+    font-size:clamp(30px,8.5vw,52px);font-weight:800;margin:0;line-height:1.15;
+    color:var(--paper);text-shadow:0 2px 18px rgba(212,175,55,.25);
+  }
+  h1 .kyu{color:var(--gold);}
+  h1 .ichi{color:var(--crimson-bright);}
+  .subtitle{margin-top:10px;color:var(--paper-dim);font-size:clamp(13px,3.4vw,16px);letter-spacing:.05em;}
+
+  .howto{
+    background:linear-gradient(160deg,var(--ink2),var(--ink3));
+    border:1px solid rgba(212,175,55,.25);border-radius:14px;
+    padding:clamp(14px,3.5vw,20px);margin:clamp(16px,4vw,26px) 0;
+    box-shadow:0 6px 20px var(--shadow);
+  }
+  .howto h3{margin:0 0 10px;color:var(--gold);font-size:clamp(15px,3.8vw,17px);}
+  .howto ul{margin:0;padding-left:1.2em;line-height:1.85;font-size:clamp(13px,3.4vw,15px);font-family:'Noto Sans JP',sans-serif;color:#e7ddc6;}
+  .howto .tap-hint{
+    margin-top:12px;text-align:center;font-weight:700;color:var(--crimson-bright);
+    font-size:clamp(14px,3.8vw,17px);letter-spacing:.04em;
+    font-family:'Noto Sans JP',sans-serif;
+  }
+  .howto .tap-hint span{display:inline-block;animation:pulse 1.6s ease-in-out infinite;}
+  @keyframes pulse{0%,100%{transform:scale(1);opacity:.9;}50%{transform:scale(1.06);opacity:1;}}
+
+  .section-label{
+    text-align:center;color:var(--gold);font-size:clamp(13px,3.4vw,15px);
+    letter-spacing:.25em;margin:6px 0 14px;
+  }
+  .section-label::before,.section-label::after{content:"—　";color:rgba(212,175,55,.5);}
+  .section-label::after{content:"　—";}
+
+  /* ===== Genre cards ===== */
+  .genres{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(10px,2.6vw,14px);}
+  .gcard{
+    background:linear-gradient(155deg,#241c13,#1a140d);
+    border:1px solid rgba(212,175,55,.28);border-radius:14px;
+    padding:clamp(14px,3.8vw,20px) clamp(10px,3vw,16px);
+    cursor:pointer;text-align:center;position:relative;overflow:hidden;
+    transition:transform .15s ease,border-color .2s ease,box-shadow .2s ease;
+  }
+  .gcard:active{transform:scale(.97);}
+  .gcard:hover{border-color:var(--gold);box-shadow:0 8px 22px var(--shadow),0 0 0 1px rgba(212,175,55,.2) inset;}
+  .gcard .ji{font-size:clamp(30px,9vw,42px);line-height:1;color:var(--gold-soft);text-shadow:0 2px 10px rgba(212,175,55,.3);}
+  .gcard .nm{margin-top:8px;font-weight:700;font-size:clamp(14px,3.8vw,17px);}
+  .gcard .ct{margin-top:4px;font-size:11px;color:var(--paper-dim);font-family:'Noto Sans JP',sans-serif;}
+  .gcard::after{content:"クリックで挑戦";position:absolute;left:0;right:0;bottom:6px;font-size:10px;color:var(--crimson-bright);font-family:'Noto Sans JP',sans-serif;opacity:.85;}
+
+  .footer-row{display:flex;justify-content:center;margin-top:26px;}
+  .btn{
+    font-family:'Noto Sans JP',sans-serif;font-weight:700;cursor:pointer;border:none;
+    border-radius:10px;padding:13px 22px;font-size:15px;transition:transform .12s ease,filter .2s ease;
+  }
+  .btn:active{transform:scale(.96);}
+  .btn-ghost{background:transparent;border:1px solid var(--paper-dim);color:var(--paper-dim);}
+  .btn-ghost:hover{border-color:var(--gold);color:var(--gold);}
+  .btn-gold{background:linear-gradient(135deg,var(--gold),#b8932a);color:#231a07;box-shadow:0 5px 16px rgba(212,175,55,.3);}
+  .btn-crimson{background:linear-gradient(135deg,var(--crimson),#8e1e23);color:#fff;box-shadow:0 5px 16px rgba(181,41,47,.35);}
+  .btn-block{width:100%;}
+
+  /* ===== Modal ===== */
+  .modal-bg{
+    position:fixed;inset:0;z-index:50;background:rgba(8,6,4,.78);
+    display:none;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(3px);
+  }
+  .modal-bg.show{display:flex;animation:fade .25s ease;}
+  .modal{
+    background:linear-gradient(160deg,var(--ink2),var(--ink3));
+    border:1px solid var(--gold);border-radius:18px;max-width:380px;width:100%;
+    padding:26px 22px;text-align:center;box-shadow:0 18px 50px rgba(0,0,0,.6);
+  }
+  .modal .ji{font-size:54px;color:var(--gold-soft);line-height:1;}
+  .modal h2{margin:10px 0 4px;font-size:22px;}
+  .modal p{margin:6px 0 0;color:var(--paper-dim);font-size:14px;font-family:'Noto Sans JP',sans-serif;line-height:1.7;}
+  .modal .rules{margin:16px 0 20px;font-size:13px;color:#e7ddc6;font-family:'Noto Sans JP',sans-serif;line-height:1.8;}
+  .modal-btns{display:flex;gap:10px;}
+  .modal-btns .btn{flex:1;}
+
+  /* ===== Quiz ===== */
+  .hud{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;gap:10px;}
+  .hud .pill{
+    background:rgba(0,0,0,.3);border:1px solid rgba(212,175,55,.3);border-radius:30px;
+    padding:8px 16px;font-family:'Noto Sans JP',sans-serif;font-weight:700;font-size:clamp(13px,3.6vw,15px);
+  }
+  .hud .pill .lab{color:var(--paper-dim);font-size:11px;margin-right:6px;font-weight:500;}
+  .hud .score-pill{color:var(--gold);}
+  .hud .time-pill{color:var(--paper);}
+  .hud .time-pill.warn{color:var(--crimson-bright);animation:blink .8s steps(2,end) infinite;}
+  @keyframes blink{50%{opacity:.4;}}
+  .timebar{height:6px;border-radius:6px;background:rgba(255,255,255,.08);overflow:hidden;margin-bottom:6px;}
+  .timebar .fill{height:100%;background:linear-gradient(90deg,var(--gold),var(--crimson));width:100%;transition:width 1s linear;}
+  .progress{text-align:center;font-size:12px;color:var(--paper-dim);font-family:'Noto Sans JP',sans-serif;margin-bottom:14px;letter-spacing:.1em;}
+
+  .qcard{
+    background:linear-gradient(160deg,var(--ink2),var(--ink3));
+    border:1px solid rgba(212,175,55,.25);border-radius:16px;
+    padding:clamp(18px,5vw,30px) clamp(16px,4.5vw,26px);box-shadow:0 8px 26px var(--shadow);
+  }
+  .qtag{
+    display:inline-block;font-size:11px;letter-spacing:.18em;color:var(--gold);
+    border:1px solid rgba(212,175,55,.4);border-radius:4px;padding:3px 10px;margin-bottom:14px;
+    font-family:'Noto Sans JP',sans-serif;
+  }
+  .qtype{float:right;font-size:11px;color:var(--paper-dim);font-family:'Noto Sans JP',sans-serif;margin-top:4px;}
+  .qtext{font-size:clamp(17px,4.8vw,23px);font-weight:700;line-height:1.6;margin-bottom:4px;}
+  .qtext .target{color:var(--gold-soft);font-size:1.25em;letter-spacing:.04em;}
+  .qsub{font-size:13px;color:var(--paper-dim);font-family:'Noto Sans JP',sans-serif;margin-top:8px;}
+
+  .choices{display:grid;gap:10px;margin-top:20px;}
+  .choices.ox{grid-template-columns:1fr 1fr;}
+  .choice{
+    font-family:'Noto Sans JP',sans-serif;font-size:clamp(15px,4.2vw,18px);font-weight:600;
+    background:#1c1610;border:1.5px solid rgba(212,175,55,.28);color:var(--paper);
+    border-radius:12px;padding:15px 16px;cursor:pointer;text-align:center;
+    transition:transform .12s ease,background .2s ease,border-color .2s ease;min-height:54px;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .choice:active{transform:scale(.97);}
+  .choice:hover{border-color:var(--gold);background:#26201600;}
+  .choice.ox-mark{font-size:clamp(26px,8vw,34px);font-weight:800;}
+  .choice.correct{background:linear-gradient(135deg,#2f7a52,#256142);border-color:var(--green);color:#fff;}
+  .choice.wrong{background:linear-gradient(135deg,#8e2126,#6b181c);border-color:var(--crimson);color:#fff;}
+  .choice.dim{opacity:.4;}
+  .choice[disabled]{cursor:default;}
+
+  /* feedback toast */
+  .toast{
+    position:fixed;left:50%;bottom:30px;transform:translateX(-50%) translateY(20px);
+    z-index:60;background:rgba(20,15,10,.96);border:1px solid var(--gold);
+    border-radius:12px;padding:14px 22px;max-width:90%;text-align:center;
+    font-family:'Noto Sans JP',sans-serif;box-shadow:0 10px 30px rgba(0,0,0,.5);
+    opacity:0;pointer-events:none;transition:opacity .25s ease,transform .25s ease;
+  }
+  .toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+  .toast .big{font-size:18px;font-weight:800;}
+  .toast.ok .big{color:var(--green);}
+  .toast.ng .big{color:var(--crimson-bright);}
+  .toast .small{font-size:13px;color:#e7ddc6;margin-top:4px;line-height:1.5;}
+
+  /* ===== Result ===== */
+  .result-card{
+    background:linear-gradient(160deg,var(--ink2),var(--ink3));
+    border:1px solid var(--gold);border-radius:18px;padding:28px 22px;text-align:center;
+    box-shadow:0 10px 30px var(--shadow);
+  }
+  .result-card .trophy{font-size:46px;}
+  .result-card h2{margin:8px 0 2px;font-size:24px;}
+  .result-card .genre-name{color:var(--gold);font-size:15px;font-family:'Noto Sans JP',sans-serif;}
+  .score-break{margin:20px 0;display:grid;gap:8px;font-family:'Noto Sans JP',sans-serif;font-size:14px;}
+  .score-break .row{display:flex;justify-content:space-between;padding:8px 14px;background:rgba(0,0,0,.25);border-radius:8px;}
+  .score-break .row .v{font-weight:700;color:var(--gold);}
+  .total-score{font-size:44px;font-weight:800;color:var(--gold);margin:6px 0;font-family:'Noto Sans JP',sans-serif;}
+  .total-score small{font-size:18px;color:var(--paper-dim);}
+  .rank-badge{display:inline-block;padding:6px 18px;border-radius:30px;font-weight:700;font-family:'Noto Sans JP',sans-serif;margin-top:6px;font-size:15px;}
+
+  .name-entry{margin:18px 0;}
+  .name-entry input{
+    font-family:'Noto Sans JP',sans-serif;font-size:16px;padding:11px 14px;border-radius:10px;
+    border:1.5px solid rgba(212,175,55,.4);background:#1c1610;color:var(--paper);width:100%;text-align:center;
+  }
+  .name-entry input:focus{outline:none;border-color:var(--gold);}
+  .result-actions{display:grid;gap:10px;margin-top:18px;}
+
+  /* ===== Review ===== */
+  .review-card{
+    background:linear-gradient(160deg,var(--ink2),var(--ink3));
+    border:1px solid rgba(181,41,47,.4);border-radius:16px;padding:22px 20px;box-shadow:0 8px 26px var(--shadow);
+  }
+  .review-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;}
+  .review-head .ttl{color:var(--crimson-bright);font-weight:700;font-size:16px;font-family:'Noto Sans JP',sans-serif;}
+  .review-head .count{font-size:13px;color:var(--paper-dim);font-family:'Noto Sans JP',sans-serif;}
+  .review-q{font-size:clamp(16px,4.4vw,20px);font-weight:700;line-height:1.6;margin-bottom:14px;}
+  .review-q .target{color:var(--gold-soft);font-size:1.2em;}
+  .ans-block{font-family:'Noto Sans JP',sans-serif;}
+  .ans-line{padding:11px 14px;border-radius:10px;margin-bottom:8px;font-size:14px;line-height:1.6;}
+  .ans-line.yours{background:rgba(181,41,47,.15);border:1px solid rgba(181,41,47,.4);}
+  .ans-line.right{background:rgba(63,157,107,.13);border:1px solid rgba(63,157,107,.45);}
+  .ans-line .lab{font-size:11px;color:var(--paper-dim);display:block;margin-bottom:2px;}
+  .ans-line.yours .val{color:var(--crimson-bright);font-weight:700;}
+  .ans-line.right .val{color:#7fd6a3;font-weight:700;}
+  .explain{margin-top:12px;padding:13px 15px;background:rgba(212,175,55,.08);border-left:3px solid var(--gold);border-radius:8px;font-family:'Noto Sans JP',sans-serif;font-size:13px;line-height:1.75;color:#ece2cb;}
+  .review-nav{display:flex;justify-content:space-between;gap:10px;margin-top:18px;}
+  .review-nav .btn{flex:1;}
+  .perfect-msg{text-align:center;padding:30px 10px;font-family:'Noto Sans JP',sans-serif;color:var(--gold);font-size:18px;line-height:1.7;}
+
+  /* ===== Ranking ===== */
+  .rank-tabs{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px;}
+  .rank-tabs .tab{
+    flex:1;min-width:80px;font-family:'Noto Sans JP',sans-serif;font-size:12px;font-weight:600;
+    padding:8px 6px;border-radius:8px;border:1px solid rgba(212,175,55,.3);background:#1c1610;
+    color:var(--paper-dim);cursor:pointer;text-align:center;transition:all .2s ease;
+  }
+  .rank-tabs .tab.active{background:linear-gradient(135deg,var(--gold),#b8932a);color:#231a07;border-color:var(--gold);}
+  .rank-list{list-style:none;margin:0;padding:0;font-family:'Noto Sans JP',sans-serif;}
+  .rank-list li{display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:10px;background:rgba(0,0,0,.22);margin-bottom:7px;}
+  .rank-list li .pos{font-weight:800;width:28px;text-align:center;color:var(--paper-dim);font-size:15px;}
+  .rank-list li.top1 .pos{color:#ffd24a;}.rank-list li.top2 .pos{color:#d8d8d8;}.rank-list li.top3 .pos{color:#cd8b4f;}
+  .rank-list li .nm{flex:1;font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+  .rank-list li .dt{font-size:11px;color:var(--paper-dim);}
+  .rank-list li .sc{font-weight:800;color:var(--gold);}
+  .rank-empty{text-align:center;color:var(--paper-dim);font-family:'Noto Sans JP',sans-serif;padding:34px 10px;font-size:14px;}
+
+  .back-portal{position:fixed;top:12px;left:12px;z-index:40;}
+  .back-portal a{
+    display:inline-flex;align-items:center;gap:6px;font-family:'Noto Sans JP',sans-serif;
+    font-size:12px;font-weight:600;text-decoration:none;color:var(--paper-dim);
+    background:rgba(20,15,10,.85);border:1px solid rgba(212,175,55,.3);border-radius:30px;padding:7px 14px;
+    transition:all .2s ease;backdrop-filter:blur(4px);
+  }
+  .back-portal a:hover{color:var(--gold);border-color:var(--gold);}
+
+  .top-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px;}
+
+  @media(max-width:360px){
+    .genres{grid-template-columns:1fr 1fr;}
+    .hud .pill{padding:7px 11px;}
+  }
 </style>
 </head>
 <body>
-<div id="screen-top" class="screen active">
-  <div class="top-hero">
-    <div class="top-eyebrow">Kanji Kentei Lv.1 Dojo</div>
-    <h1 class="top-title">漢字検定1級<span>クイズ</span>【弐】</h1>
-    <p class="top-sub">熟字訓・国字・四字熟語・故事成語…日本最難関「漢検1級」に挑戦！</p>
-    <div class="top-rule">📋 制限時間：<strong>120秒</strong> ／ 各ジャンル<strong>10問</strong>ランダム出題<br>✅ 正解 → <strong>+10点</strong> ＋ 時間+5秒<br>❌ 不正解 → 減点なし ＋ 時間−5秒のペナルティ<br>🏆 残り時間がそのままボーナス点に加算！<br>⚡ 問題が流れたら「回答する！」を押して選択肢を表示<br>👆 ジャンルカードを<strong>クリックで即スタート</strong>（名前入力は任意）<br>【4択】と【○×】がランダムにミックスされます</div>
-  </div>
-  <div class="genres-wrap">
-    <div class="genres-label">// ジャンルを選んでクリック → 即スタート</div>
-    <div class="genres-hint">👆 カードをクリックするとすぐに始められます（次の画面でスタートを押すだけ）</div>
-    <div class="genres-grid" id="genres-grid"></div>
-    <div class="ranking-btn-wrap"><button class="ranking-btn" onclick="showRanking()">🏆 スコアランキングを見る</button></div>
-  </div>
+<canvas id="bgCanvas"></canvas>
+
+<div class="back-portal">
+  <a href="https://pecpec37-gift.github.io/portal/">‹ ポータルサイトに戻る</a>
 </div>
-<div id="screen-intro" class="screen">
-  <div class="intro-box">
-    <span class="intro-icon" id="intro-icon"></span>
-    <div class="intro-name" id="intro-name"></div>
-    <div class="intro-desc" id="intro-desc"></div>
-    <div class="intro-rule">制限時間：<strong>120秒</strong> ／ 10問ランダム出題（4択＋○×ミックス）<br>✅ 正解 → <strong>+10点</strong> ＋ 時間+5秒<br>❌ 不正解 → 減点なし ＋ 時間−5秒<br>🏆 残り時間がそのままボーナス点に加算<br>⚡ 問題が流れたら「回答する！」で選択肢が出ます</div>
-    <div class="name-label">// Your Name（ランキングに表示）</div>
-    <input class="name-input" id="name-input" type="text" maxlength="20" placeholder="プレーヤー名（任意）">
-    <button class="start-btn" onclick="startGame()">スタート ▶</button>
-    <button class="back-link" onclick="showScreen('screen-top')">← 戻る</button>
-  </div>
-</div>
-<div id="screen-quiz" class="screen">
-  <div class="quiz-header">
-    <div class="quiz-qnum" id="quiz-qnum">Q1 / 10</div>
-    <div class="quiz-progress"><div class="quiz-progress-fill" id="quiz-progress-fill" style="width:0%"></div></div>
-    <div class="quiz-score" id="quiz-score">0 pt</div>
-    <div class="quiz-timer-wrap"><div class="quiz-timer" id="quiz-timer">120</div><div class="quiz-timer-label">秒</div></div>
-  </div>
-  <div class="quiz-body">
-    <div class="quiz-type-badge" id="quiz-type-badge">4択</div>
-    <div class="quiz-q" id="quiz-q"><span class="cursor-blink"></span></div>
-    <div id="quiz-choices" style="display:none;"></div>
-    <button class="buzzer-btn" id="buzzer-btn" onclick="onBuzzer()">⚡ 回答する！</button>
-  </div>
-</div>
-<div id="screen-result" class="screen">
-  <div class="result-box">
-    <div class="result-genre" id="result-genre"></div>
-    <div class="result-score-wrap">
-      <span class="result-medal" id="result-medal">🏆</span>
-      <div class="result-score" id="result-score">0</div>
-      <div class="result-score-label">TOTAL SCORE</div>
-      <div class="result-stats">
-        <div class="result-stat"><div class="result-stat-val green" id="result-correct">0</div><div class="result-stat-label">正解数</div></div>
-        <div class="result-stat"><div class="result-stat-val" id="result-wrong">0</div><div class="result-stat-label">不正解数</div></div>
-        <div class="result-stat"><div class="result-stat-val gold" id="result-bonus">+0</div><div class="result-stat-label">時間ボーナス</div></div>
+
+<div class="wrap">
+
+  <!-- ============ TITLE ============ -->
+  <section id="screen-title" class="screen active">
+    <div class="crest" style="margin-top:36px;">
+      <div class="seal">日本漢字能力検定　１級　其の弐</div>
+      <h1><span class="kyu">漢字検定1級</span>クイズ<span class="ichi">【弐】</span></h1>
+      <div class="subtitle">墨に親しみ、難字を極める。全6ジャンル・150問超の挑戦状。</div>
+    </div>
+
+    <div class="howto">
+      <h3>遊び方</h3>
+      <ul>
+        <li>各ジャンルから <b>ランダム10問</b> を出題（4択 ＋ ○× ミックス）</li>
+        <li>制限時間は <b>120秒</b>。残った時間はそのまま <b>ボーナス点</b> に！</li>
+        <li>正解 → <b>+10点 ＆ 時間+5秒</b>（「正解！ +5秒」）</li>
+        <li>不正解 → <b>減点なし・時間−5秒</b>（正解を表示）</li>
+        <li>終了後は <b>間違えた問題を1問ずつ復習</b> できます</li>
+        <li>スコアは端末内ランキングに記録（共有なし・ローカル保存）</li>
+      </ul>
+      <div class="tap-hint"><span>▶ ジャンルカードをクリックで即スタート！</span></div>
+    </div>
+
+    <div class="section-label">ジャンルを選ぶ</div>
+    <div class="genres" id="genreGrid"></div>
+
+    <div class="top-actions">
+      <button class="btn btn-ghost" onclick="showRanking()">🏆 ランキング</button>
+      <button class="btn btn-ghost" onclick="randomGenre()">🎲 おまかせ出題</button>
+    </div>
+  </section>
+
+  <!-- ============ QUIZ ============ -->
+  <section id="screen-quiz" class="screen">
+    <div class="hud">
+      <div class="pill score-pill"><span class="lab">得点</span><span id="hudScore">0</span></div>
+      <div class="pill time-pill" id="timePill"><span class="lab">残り</span><span id="hudTime">120</span>秒</div>
+    </div>
+    <div class="timebar"><div class="fill" id="timeFill"></div></div>
+    <div class="progress" id="progress">第 1 問 / 10</div>
+
+    <div class="qcard">
+      <span class="qtag" id="qTag">読み</span>
+      <span class="qtype" id="qType">4択</span>
+      <div class="qtext" id="qText"></div>
+      <div class="qsub" id="qSub"></div>
+      <div class="choices" id="choices"></div>
+    </div>
+  </section>
+
+  <!-- ============ RESULT ============ -->
+  <section id="screen-result" class="screen">
+    <div class="result-card">
+      <div class="trophy">🏆</div>
+      <h2>結果発表</h2>
+      <div class="genre-name" id="resGenre">読み</div>
+
+      <div class="total-score"><span id="resTotal">0</span><small> 点</small></div>
+      <div class="rank-badge" id="resBadge">—</div>
+
+      <div class="score-break">
+        <div class="row"><span>正解数</span><span class="v"><span id="resCorrect">0</span> / 10 問</span></div>
+        <div class="row"><span>基礎点（正解×10）</span><span class="v"><span id="resBase">0</span> 点</span></div>
+        <div class="row"><span>残り時間ボーナス</span><span class="v">+ <span id="resBonus">0</span> 点</span></div>
+      </div>
+
+      <div class="name-entry" id="nameEntry">
+        <input type="text" id="playerName" placeholder="ランキング登録名（任意）" maxlength="12">
+      </div>
+
+      <div class="result-actions">
+        <button class="btn btn-gold btn-block" id="saveBtn" onclick="saveScore()">📥 ランキングに登録</button>
+        <button class="btn btn-crimson btn-block" id="reviewBtn" onclick="showReview()">📖 間違えた問題を復習</button>
+        <button class="btn btn-ghost btn-block" onclick="retrySame()">🔁 同じジャンルに再挑戦</button>
+        <button class="btn btn-ghost btn-block" onclick="goTitle()">🏠 トップへ戻る</button>
       </div>
     </div>
-    <div class="result-actions">
-      <button class="result-btn result-btn-primary" onclick="retryGame()">もう一度挑戦</button>
-      <button class="result-btn result-btn-secondary" onclick="showScreen('screen-top')">← トップへ</button>
+  </section>
+
+  <!-- ============ REVIEW ============ -->
+  <section id="screen-review" class="screen">
+    <div class="review-card" id="reviewCard"></div>
+    <div class="footer-row">
+      <button class="btn btn-ghost" onclick="backToResult()">‹ 結果に戻る</button>
     </div>
-  </div>
-  <div class="wrong-section" id="wrong-section"></div>
-  <a class="portal-back" href="https://pecpec37-gift.github.io/portal/">← とみやんのゲームランド（ポータルサイトに戻る）</a>
-</div>
-<div id="screen-ranking" class="screen">
-  <div class="ranking-wrap">
-    <div class="ranking-top"><div class="ranking-title">🏆 スコアランキング</div><button class="ranking-back" onclick="showScreen('screen-top')">← トップへ</button></div>
-    <div class="ranking-tabs" id="ranking-tabs"></div>
-    <div class="ranking-list" id="ranking-list"></div>
-    <div style="text-align:center;margin-top:16px;"><button class="ranking-del" onclick="deleteRanking()">🗑️ このジャンルの記録を削除</button></div>
-  </div>
-</div>
-<div class="result-overlay" id="result-overlay">
-  <div class="result-box-ov" id="result-box-ov">
-    <div class="result-emoji" id="result-emoji">✅</div>
-    <div class="result-label-ov" id="result-label-ov">正解！</div>
-    <div class="result-ans-show">
-      <div class="result-ans-q" id="result-ov-q"></div>
-      <div class="result-ans-a" id="result-ov-a"></div>
+  </section>
+
+  <!-- ============ RANKING ============ -->
+  <section id="screen-ranking" class="screen">
+    <div class="crest" style="margin-top:30px;">
+      <h1 style="font-size:clamp(26px,7vw,40px);">🏆 ランキング</h1>
+      <div class="subtitle">この端末に保存された記録（ジャンル別 / 上位10位）</div>
     </div>
-    <div class="result-feedback" id="result-ov-fb"></div>
-    <div class="result-mean" id="result-ov-mean"></div>
-    <button class="start-btn" id="ov-next-btn" onclick="nextQuestion()">次の問題へ →</button>
+    <div class="rank-tabs" id="rankTabs"></div>
+    <ul class="rank-list" id="rankList"></ul>
+    <div class="footer-row" style="gap:10px;flex-wrap:wrap;">
+      <button class="btn btn-ghost" onclick="goTitle()">🏠 トップへ戻る</button>
+      <button class="btn btn-ghost" onclick="clearRanking()">🗑 この記録を消去</button>
+    </div>
+  </section>
+
+</div>
+
+<!-- confirmation modal -->
+<div class="modal-bg" id="modalBg">
+  <div class="modal">
+    <div class="ji" id="modalJi">読</div>
+    <h2 id="modalName">読み</h2>
+    <p id="modalDesc"></p>
+    <div class="rules">
+      ⏱ 120秒　/　全10問　/　正解 +10点・+5秒<br>残り時間はボーナス点に！
+    </div>
+    <div class="modal-btns">
+      <button class="btn btn-ghost" onclick="closeModal()">やめる</button>
+      <button class="btn btn-crimson" onclick="confirmStart()">スタート！</button>
+    </div>
   </div>
 </div>
 
-<div id="toast"></div>
-<a class="portal-fixed-btn" href="https://pecpec37-gift.github.io/portal/">← ポータルサイトに戻る</a>
+<!-- feedback toast -->
+<div class="toast" id="toast"><div class="big" id="toastBig"></div><div class="small" id="toastSmall"></div></div>
+
 <script>
-const GENRES=[
-  {id:'jukuji', icon:'🐚',name:'熟字訓・当て字', color:'#5aa9d6',desc:'海星＝ひとで、向日葵＝ひまわり…難読の動植物名'},
-  {id:'kokuji', icon:'🗾',name:'国字（和製漢字）',color:'#3fae7a',desc:'凪・峠・躾・颪…日本で生まれた漢字'},
-  {id:'yoji4',  icon:'📜',name:'四字熟語（1級）', color:'#c9a227',desc:'鎧袖一触・曲学阿世・換骨奪胎など'},
-  {id:'kotowaza',icon:'🏯',name:'故事・諺',      color:'#a0341f',desc:'蟷螂の斧・鼎の軽重を問う・嚆矢など'},
-  {id:'kunyomi',icon:'🖌️',name:'一字訓読み・難読',color:'#c0392b',desc:'抉る・嘶く・諫める・蹲る…一字の訓'},
-  {id:'busyu',  icon:'✒️',name:'部首・画数・筆順',color:'#b45309',desc:'相＝目部？ 右と左の一画目は？など'},
-];
-// q:問題文 / c:4択（先頭が正解、表示時にシャッフル） / a:正解index / m:意味の解説（フィードバック・復習で表示）
-const DB={
-jukuji:[
-  {type:'4',q:'「<span class="yoji">海胆</span>」の正しい読みは？',c:['うに','なまこ','ひとで','くらげ'],a:0,m:'海胆／海栗（うに）＝とげに覆われた棘皮（きょくひ）動物。'},
-  {type:'4',q:'「<span class="yoji">烏賊</span>」の正しい読みは？',c:['いか','たこ','えび','かに'],a:0,m:'烏賊（いか）＝墨を吐く軟体動物。'},
-  {type:'ox',q:'<span class="yoji">信天翁</span>は「あほうどり」と読む。',a:true,m:'信天翁（あほうどり）＝大型の海鳥。'},
-  {type:'4',q:'「<span class="yoji">旗魚</span>」の正しい読みは？',c:['かじき','まぐろ','かつお','ぶり'],a:0,m:'旗魚（かじき）＝長い吻（ふん）をもつ大型魚。'},
-  {type:'4',q:'「<span class="yoji">守宮</span>」の正しい読みは？',c:['やもり','いもり','とかげ','かなへび'],a:0,m:'守宮／家守（やもり）＝家屋にすむ爬虫類。'},
-  {type:'ox',q:'<span class="yoji">蒲公英</span>は「たんぽぽ」と読む。',a:true,m:'蒲公英（たんぽぽ）。'},
-  {type:'4',q:'「<span class="yoji">公孫樹</span>」の正しい読みは？',c:['いちょう','かえで','けやき','つばき'],a:0,m:'公孫樹／銀杏（いちょう）。'},
-  {type:'4',q:'「<span class="yoji">木通</span>」の正しい読みは？',c:['あけび','びわ','ざくろ','いちじく'],a:0,m:'木通／通草（あけび）。'},
-  {type:'ox',q:'<span class="yoji">山毛欅</span>は「ぶな」と読む。',a:true,m:'山毛欅（ぶな）＝落葉高木。'},
-  {type:'4',q:'「<span class="yoji">馴鹿</span>」の正しい読みは？',c:['となかい','かもしか','いのしし','らくだ'],a:0,m:'馴鹿（となかい）。'},
-  {type:'4',q:'「<span class="yoji">海獺</span>」の正しい読みは？',c:['らっこ','あしか','せいうち','あざらし'],a:0,m:'海獺／猟虎（らっこ）。'},
-  {type:'4',q:'「<span class="yoji">樹懶</span>」の正しい読みは？',c:['なまけもの','やまあらし','むささび','こうもり'],a:0,m:'樹懶（なまけもの）＝動きの遅い哺乳類。'},
-  {type:'ox',q:'<span class="yoji">翻車魚</span>は「まんぼう」と読む。',a:true,m:'翻車魚（まんぼう）。'},
-  {type:'4',q:'「<span class="yoji">馬鈴薯</span>」の正しい読みは？',c:['じゃがいも','さつまいも','さといも','やまいも'],a:0,m:'馬鈴薯（じゃがいも）。'},
-  {type:'4',q:'「<span class="yoji">章魚</span>」の正しい読みは？',c:['たこ','いか','くらげ','なまこ'],a:0,m:'章魚／鮹（たこ）＝八本足の軟体動物。'},
-  {type:'ox',q:'鳥を表す場合、<span class="yoji">翡翠</span>は「かわせみ」とも読む。',a:true,m:'翡翠（かわせみ／ひすい）。鳥のカワセミと宝石のヒスイ。'},
-  {type:'4',q:'「<span class="yoji">軍鶏</span>」の正しい読みは？',c:['しゃも','ちゃぼ','うこっけい','きじ'],a:0,m:'軍鶏（しゃも）＝闘鶏用に飼われる鶏の品種。'},
-  {type:'4',q:'「<span class="yoji">河豚</span>」の正しい読みは？',c:['ふぐ','まぐろ','たい','さば'],a:0,m:'河豚（ふぐ）。'},
-  {type:'ox',q:'<span class="yoji">膃肭臍</span>は「おっとせい」と読む。',a:true,m:'膃肭臍（おっとせい）＝アシカ科の海獣。'},
-  {type:'4',q:'「<span class="yoji">鸚鵡</span>」の正しい読みは？',c:['おうむ','いんこ','ふくろう','つばめ'],a:0,m:'鸚鵡（おうむ）＝人の声をまねる鳥。'},
-  {type:'4',q:'「<span class="yoji">海鞘</span>」の正しい読みは？',c:['ほや','なまこ','くらげ','ひとで'],a:0,m:'海鞘（ほや）＝海産動物。珍味として食用にも。'},
-  {type:'4',q:'「<span class="yoji">蜻蛉</span>」の正しい読み（昆虫）は？',c:['とんぼ','ちょう','せみ','はち'],a:0,m:'蜻蛉（とんぼ／かげろう）。'},
-  {type:'ox',q:'<span class="yoji">井守</span>は「いもり」と読む。',a:true,m:'井守（いもり）＝水辺にすむ両生類。「守宮（やもり）」と区別。'},
-  {type:'4',q:'「<span class="yoji">秋刀魚</span>」の正しい読みは？',c:['さんま','いわし','あじ','さわら'],a:0,m:'秋刀魚（さんま）＝秋の刀のような魚。'},
-  {type:'4',q:'「<span class="yoji">公魚</span>」の正しい読みは？',c:['わかさぎ','どじょう','なまず','うなぎ'],a:0,m:'公魚（わかさぎ）。'},
-  {type:'ox',q:'<span class="yoji">土竜</span>は「もぐら」と読む。',a:true,m:'土竜（もぐら）。'},
-  {type:'4',q:'「<span class="yoji">石榴</span>」の正しい読みは？',c:['ざくろ','いちじく','びわ','あけび'],a:0,m:'石榴／柘榴（ざくろ）＝赤い種子の多い果実。'},
-  {type:'4',q:'「<span class="yoji">海象</span>」の正しい読みは？',c:['せいうち','あしか','おっとせい','じゅごん'],a:0,m:'海象（せいうち）＝長い牙をもつ海獣。'},
-  {type:'ox',q:'<span class="yoji">百足</span>は「むかで」と読む。',a:true,m:'百足（むかで）＝多くの脚をもつ節足動物。'},
-],
-kokuji:[
-  {type:'ox',q:'「国字」とは、漢字をまねて日本で独自に作られた文字のことである。',a:true,m:'国字（こくじ）。「峠」「凪」「働」など。'},
-  {type:'4',q:'「<span class="yoji">凪</span>」の正しい読みは？',c:['なぎ','あらし','しぐれ','みぞれ'],a:0,m:'凪（なぎ）＝風がやみ波が穏やかなこと。'},
-  {type:'4',q:'「<span class="yoji">峠</span>」の正しい読みは？',c:['とうげ','みさき','たに','さか'],a:0,m:'峠（とうげ）＝山道の上り下りの境。'},
-  {type:'ox',q:'<span class="yoji">榊</span>（さかき）は、神事に用いる常緑樹を表す国字である。',a:true,m:'榊（さかき）＝「木」＋「神」。'},
-  {type:'4',q:'「<span class="yoji">辻</span>」の正しい読みは？',c:['つじ','まち','みち','はし'],a:0,m:'辻（つじ）＝十字路。'},
-  {type:'4',q:'「<span class="yoji">躾</span>」の正しい読みは？',c:['しつけ','たしなみ','ほまれ','つとめ'],a:0,m:'躾（しつけ）＝「身」＋「美」。'},
-  {type:'ox',q:'国字の多くは音読みを持たず、訓読みだけである。',a:true,m:'日本で作られたため、原則として音読みがない（例外あり）。'},
-  {type:'4',q:'国字「<span class="yoji">働</span>」が例外的にもつ音読みは？',c:['ドウ','コウ','ロウ','ボウ'],a:0,m:'働（ドウ・はたら-く）＝音読みをもつ珍しい国字。'},
-  {type:'4',q:'「<span class="yoji">雫</span>」の正しい読みは？',c:['しずく','あられ','つゆ','しぶき'],a:0,m:'雫（しずく）＝「雨」＋「下」。'},
-  {type:'ox',q:'<span class="yoji">凧</span>は「たこ」と読む国字である。',a:true,m:'凧（たこ）＝空に揚げるたこ。'},
-  {type:'4',q:'「<span class="yoji">凩</span>」の正しい読みは？',c:['こがらし','かまいたち','つむじ','たつまき'],a:0,m:'凩（こがらし）＝木を吹き枯らす冷たい風。'},
-  {type:'4',q:'「<span class="yoji">颪</span>」の正しい読みは？',c:['おろし','なだれ','ひょう','みぞれ'],a:0,m:'颪（おろし）＝山から吹き下ろす風。六甲颪など。'},
-  {type:'ox',q:'<span class="yoji">鰯</span>は「いわし」と読む国字である。',a:true,m:'鰯（いわし）＝「魚」＋「弱」。'},
-  {type:'4',q:'「<span class="yoji">鱈</span>」の正しい読みは？',c:['たら','ます','ふな','こい'],a:0,m:'鱈（たら）＝「魚」＋「雪」。'},
-  {type:'4',q:'「<span class="yoji">鯰</span>」の正しい読みは？',c:['なまず','どじょう','うなぎ','すずき'],a:0,m:'鯰（なまず）。'},
-  {type:'ox',q:'<span class="yoji">鯱</span>は「しゃち」と読む国字である。',a:true,m:'鯱（しゃち）＝城の屋根の装飾「しゃちほこ」など。'},
-  {type:'4',q:'「<span class="yoji">裃</span>」の正しい読みは？',c:['かみしも','はかま','たすき','ふんどし'],a:0,m:'裃（かみしも）＝武士の礼装。「上下」を組み合わせた国字。'},
-  {type:'4',q:'「<span class="yoji">噺</span>」の正しい読みは？',c:['はなし','うわさ','かたり','ことば'],a:0,m:'噺（はなし）＝落語などの「はなし」。'},
-  {type:'ox',q:'<span class="yoji">俤</span>は「おもかげ」と読む国字である。',a:true,m:'俤（おもかげ）。'},
-  {type:'4',q:'「<span class="yoji">鋲</span>」の正しい読みは？',c:['びょう','くぎ','かすがい','ねじ'],a:0,m:'鋲（びょう）＝画鋲（がびょう）の「びょう」。'},
-  {type:'4',q:'「<span class="yoji">枠</span>」の正しい読みは？',c:['わく','かど','ふち','すみ'],a:0,m:'枠（わく）。'},
-  {type:'ox',q:'<span class="yoji">栃</span>（とち）は地名にも使われる国字である。',a:true,m:'栃（とち）＝栃木県の「栃」。'},
-  {type:'4',q:'「<span class="yoji">樫</span>」の正しい読みは？',c:['かし','けやき','ひのき','すぎ'],a:0,m:'樫（かし）＝堅い木。「木」＋「堅」。'},
-  {type:'4',q:'「<span class="yoji">畑</span>」の正しい読みは？',c:['はたけ','たんぼ','あぜ','うね'],a:0,m:'畑／畠（はたけ）＝水を使わない耕地。国字。'},
-  {type:'ox',q:'<span class="yoji">麿</span>は「まろ」と読む国字である。',a:true,m:'麿（まろ）＝人名などに使う。'},
-  {type:'4',q:'「<span class="yoji">喰</span>」の正しい読みは？',c:['くう','のむ','かむ','すう'],a:0,m:'喰（く-う）＝「食う」の俗字的な国字。'},
-  {type:'4',q:'「<span class="yoji">毟る</span>」の正しい読みは？',c:['むしる','ちぎる','ねじる','こする'],a:0,m:'毟る（むし-る）＝「少」＋「毛」。毛をむしる。'},
-],
-yoji4:[
-  {type:'4',q:'「<span class="yoji">杓子定規</span>」の意味は？',c:['形式や規則にとらわれ融通がきかないこと','大酒を飲み大食いすること','風雨に苦労を重ねること','落ち着いて動じないこと'],a:0,m:'杓子定規（しゃくしじょうぎ）＝一つの基準ですべてを律しようとすること。'},
-  {type:'4',q:'「あわてふためき、うろたえ騒ぐこと」を表す四字熟語は？',c:['周章狼狽','泰然自若','付和雷同','面従腹背'],a:0,m:'周章狼狽（しゅうしょうろうばい）。'},
-  {type:'ox',q:'<span class="yoji">玉石混淆</span>は、すぐれた物とつまらない物が入りまじっていること。',a:true,m:'玉石混淆／混交（ぎょくせきこんこう）。'},
-  {type:'4',q:'「先人の作品の発想を生かしつつ、独自の表現に作りかえること」を表すのは？',c:['換骨奪胎','焚書坑儒','付和雷同','羊頭狗肉'],a:0,m:'換骨奪胎（かんこつだったい）。'},
-  {type:'4',q:'「<span class="yoji">牽強付会</span>」の意味は？',c:['都合のよいように無理にこじつけること','落ち着いて動じないこと','才知が活発に現れること','見かけ倒しであること'],a:0,m:'牽強付会（けんきょうふかい）。'},
-  {type:'ox',q:'<span class="yoji">傍若無人</span>は、人前をはばからず勝手気ままに振る舞うこと。',a:true,m:'傍若無人（ぼうじゃくぶじん）＝傍らに人無きが若（ごと）し。'},
-  {type:'4',q:'「うわべは従うふりをして、内心では背くこと」を表す四字熟語は？',c:['面従腹背','唯々諾々','慇懃無礼','才気煥発'],a:0,m:'面従腹背（めんじゅうふくはい）。'},
-  {type:'4',q:'「生き残るか滅びるかの瀬戸際」を表す四字熟語は？',c:['危急存亡','旗幟鮮明','面壁九年','比翼連理'],a:0,m:'危急存亡（ききゅうそんぼう）＝危急存亡の秋（とき）。'},
-  {type:'ox',q:'<span class="yoji">泰然自若</span>は、落ち着いて物事に動じないさまをいう。',a:true,m:'泰然自若（たいぜんじじゃく）。'},
-  {type:'4',q:'「大酒を飲み、大量に食べること」を表す四字熟語は？',c:['鯨飲馬食','櫛風沐雨','曲学阿世','乾坤一擲'],a:0,m:'鯨飲馬食（げいいんばしょく）＝鯨のように飲み馬のように食う。'},
-  {type:'4',q:'「風雨にさらされて苦労を重ねること」を表すのは？',c:['櫛風沐雨','紫電一閃','雲散霧消','沈魚落雁'],a:0,m:'櫛風沐雨（しっぷうもくう）＝風で髪をくしけずり、雨で身を洗う。'},
-  {type:'ox',q:'<span class="yoji">紫電一閃</span>は、きわめて短い時間や、とっさのひらめきのたとえ。',a:true,m:'紫電一閃（しでんいっせん）。'},
-  {type:'4',q:'「書物を焼き、儒者を生き埋めにした思想弾圧」を指す四字熟語は？',c:['焚書坑儒','臥薪嘗胆','捲土重来','内憂外患'],a:0,m:'焚書坑儒（ふんしょこうじゅ）＝秦の始皇帝の故事。'},
-  {type:'4',q:'「<span class="yoji">羊頭狗肉</span>」の意味は？',c:['見かけと中身が違うこと','立派で堂々としていること','最後まで勢いがあること','互いに助け合うこと'],a:0,m:'羊頭狗肉（ようとうくにく）＝羊の頭を看板に、犬の肉を売る。'},
-  {type:'ox',q:'<span class="yoji">竜頭蛇尾</span>は、始めは盛んで終わりがふるわないこと。',a:true,m:'竜頭蛇尾（りゅうとうだび）。'},
-  {type:'4',q:'「怒りや不満をじっとこらえ、軽々しく動かないこと」を表すのは？',c:['隠忍自重','周章狼狽','大言壮語','付和雷同'],a:0,m:'隠忍自重（いんにんじちょう）。'},
-  {type:'4',q:'「目的のため、長い年月じっと忍耐強く努力すること」を表すのは？',c:['面壁九年','一朝一夕','付和雷同','大言壮語'],a:0,m:'面壁九年（めんぺきくねん）＝達磨が壁に向かい九年座禅した故事。'},
-  {type:'ox',q:'<span class="yoji">比翼連理</span>は、男女の情愛が深く仲むつまじいことのたとえである。',a:true,m:'比翼連理（ひよくれんり）＝比翼の鳥と連理の枝。'},
-  {type:'4',q:'「あとかたもなく消えてなくなること」を表す四字熟語は？',c:['雲散霧消','沈魚落雁','内憂外患','流言飛語'],a:0,m:'雲散霧消（うんさんむしょう）。'},
-  {type:'4',q:'絶世の美人の形容として用いられる四字熟語は？',c:['沈魚落雁','内憂外患','流言飛語','焚書坑儒'],a:0,m:'沈魚落雁（ちんぎょらくがん）＝魚は沈み雁は落ちるほどの美しさ。'},
-  {type:'ox',q:'<span class="yoji">内憂外患</span>は、内部の心配ごとと外部からの心配ごとが重なること。',a:true,m:'内憂外患（ないゆうがいかん）。'},
-  {type:'4',q:'「根拠のないうわさ。デマ」を表す四字熟語は？',c:['流言飛語','玉石混淆','鯨飲馬食','慇懃無礼'],a:0,m:'流言飛語／蜚語（りゅうげんひご）。'},
-  {type:'4',q:'「すぐれた才知が活発にあらわれること」を表すのは？',c:['才気煥発','面従腹背','唯々諾々','櫛風沐雨'],a:0,m:'才気煥発（さいきかんぱつ）。'},
-  {type:'ox',q:'<span class="yoji">付和雷同</span>は、確たる考えなく軽々しく他人の意見に従うこと。',a:true,m:'付和雷同（ふわらいどう）。'},
-  {type:'4',q:'「<span class="yoji">気炎万丈</span>」の意味は？',c:['意気込みが盛んなこと','静かで控えめなこと','見かけ倒しなこと','行き詰まること'],a:0,m:'気炎万丈（きえんばんじょう）＝燃え上がる炎のように意気盛ん。'},
-  {type:'ox',q:'<span class="yoji">換骨奪胎</span>は、他人の作品をそっくりそのまま盗用することをいう。',a:false,m:'誤り。発想を生かしつつ自分のものに作りかえること。盗用は「剽窃（ひょうせつ）」。'},
-  {type:'4',q:'「<span class="yoji">大言壮語</span>」の意味は？',c:['実力以上に大きなことを言うこと','形式にとらわれること','落ち着いて動じないこと','あわてふためくこと'],a:0,m:'大言壮語（たいげんそうご）＝威勢のよいおおげさな物言い。'},
-  {type:'ox',q:'<span class="yoji">焚書坑儒</span>は、秦の始皇帝による思想統制の故事に由来する。',a:true,m:'焚書坑儒（ふんしょこうじゅ）。'},
-],
-kotowaza:[
-  {type:'4',q:'「<span class="yoji">蟷螂の斧</span>」の意味は？',c:['弱者が力をわきまえず強者に立ち向かうこと','油断して失敗すること','弱者どうしが争うこと','努力が必ず報われること'],a:0,m:'蟷螂（とうろう＝かまきり）の斧。'},
-  {type:'ox',q:'<span class="yoji">烏合の衆</span>は、規律も統一もない人々の集まりのこと。',a:true,m:'烏合の衆（うごうのしゅう）＝からすの群れのよう。'},
-  {type:'4',q:'「命令や方針がころころ変わって定まらないこと」を表すのは？',c:['朝令暮改','右往左往','付和雷同','五里霧中'],a:0,m:'朝令暮改（ちょうれいぼかい）＝朝出した命令を夕方には改める。'},
-  {type:'4',q:'「団体・党派の中心に立って指導すること」を表す故事成語は？',c:['牛耳を執る','蛇足を加える','株を守る','轍を踏む'],a:0,m:'牛耳を執る（ぎゅうじをとる）＝牛耳る（ぎゅうじる）。'},
-  {type:'ox',q:'<span class="yoji">顰に倣う</span>（ひそみにならう）は、むやみに人のまねをすること。',a:true,m:'西施（せいし）が眉をひそめた美しさを醜女がまねた故事。'},
-  {type:'4',q:'「方法を誤っては目的を達せられないこと」を表すのは？',c:['木に縁りて魚を求む','覆水盆に返らず','五十歩百歩','蛍雪の功'],a:0,m:'木に縁りて魚を求む（きによりてうおをもとむ）。'},
-  {type:'4',q:'「すぐれた人物は多くの中にいても自然に頭角を現すこと」を表すのは？',c:['嚢中の錐','焼け石に水','背水の陣','紺屋の白袴'],a:0,m:'嚢中（のうちゅう）の錐（きり）＝袋の中の錐は先が突き出る。'},
-  {type:'ox',q:'「完璧」の語源は、傷のない宝玉を無事に持ち帰ったという故事である。',a:true,m:'完璧（かんぺき）＝藺相如（りんしょうじょ）が璧（へき）を全うして帰った故事。'},
-  {type:'4',q:'「一歩も引けない決死の覚悟で事に当たること」を表すのは？',c:['背水の陣','登竜門','焼け石に水','紺屋の白袴'],a:0,m:'背水（はいすい）の陣＝川を背に陣取り退路を断った韓信の故事。'},
-  {type:'4',q:'「そこを通れば立身出世できる、という関門」を表すのは？',c:['登竜門','背水の陣','五里霧中','焼け石に水'],a:0,m:'登竜門（とうりゅうもん）＝鯉が竜門の急流を登れば竜になるという故事。'},
-  {type:'ox',q:'<span class="yoji">漱石枕流</span>（そうせきちんりゅう）は、誤りを認めず負け惜しみを言うことのたとえである。',a:true,m:'石に漱（くちすす）ぎ流れに枕すと言い張った故事。夏目漱石の号の由来。'},
-  {type:'4',q:'「よけいな力添えをして、かえって害を与えること」を表すのは？',c:['助長','圧巻','蛍雪の功','五十歩百歩'],a:0,m:'助長（じょちょう）＝苗を引っぱって枯らした故事。'},
-  {type:'4',q:'「事情がつかめず、方針も立たずに迷うこと」を表すのは？',c:['五里霧中','朝令暮改','紺屋の白袴','焼け石に水'],a:0,m:'五里霧中（ごりむちゅう）＝五里四方に立ちこめた霧の中。'},
-  {type:'ox',q:'「過ぎたるは猶（なお）及ばざるが如し」は、やり過ぎは足りないのと同じくよくない、という意味である。',a:true,m:'論語のことば。中庸の大切さを説く。'},
-  {type:'4',q:'「古い習慣にとらわれて融通がきかないこと」を表すのは？',c:['株を守る','蛍雪の功','画竜点睛','五十歩百歩'],a:0,m:'株を守る＝守株（しゅしゅ）。切り株を見張った故事。'},
-  {type:'4',q:'「小さなことを処理するのに大げさな手段を用いること」を表すのは？',c:['鶏を割くに牛刀を用う','背水の陣','登竜門','焼け石に水'],a:0,m:'鶏（にわとり）を割（さ）くに焉（いずく）んぞ牛刀を用いん（論語）。'},
-  {type:'ox',q:'「良薬は口に苦し」は、ためになる忠告ほど聞き入れにくいものだ、という意味である。',a:true,m:'「忠言耳に逆らう」と対で使われる。'},
-  {type:'4',q:'「苦労して学問にはげむこと」を表す故事成語は？',c:['蛍雪の功','画竜点睛','助長','蛇足'],a:0,m:'蛍雪の功（けいせつのこう）＝蛍の光・雪明かりで学んだ故事。'},
-  {type:'4',q:'「大事をなすには、まず手近なこと（言い出した者）から着手せよ」を表すのは？',c:['隗より始めよ','背水の陣','焼け石に水','登竜門'],a:0,m:'先（ま）ず隗（かい）より始めよ＝郭隗（かくかい）が王に説いた故事。'},
-  {type:'ox',q:'<span class="yoji">断腸の思い</span>は、はらわたがちぎれるほどのつらく悲しい思いをいう。',a:true,m:'子を捕らえられた母猿が悲しみのあまり腸（はらわた）がちぎれていた故事。'},
-  {type:'4',q:'「援助や努力がわずかで、ほとんど効き目がないこと」を表すのは？',c:['焼け石に水','背水の陣','登竜門','五里霧中'],a:0,m:'焼け石に水＝熱した石に少量の水をかけてもすぐ蒸発する。'},
-  {type:'4',q:'「他人のために忙しく、自分のことには手が回らないこと」を表すのは？',c:['紺屋の白袴','背水の陣','登竜門','焼け石に水'],a:0,m:'紺屋（こうや）の白袴（しろばかま）＝染め物屋が自分は白袴のまま。'},
-  {type:'ox',q:'<span class="yoji">駑馬に鞭打つ</span>は、能力の劣る自分が努力することをへりくだって言う語。',a:true,m:'駑馬（どば）＝足の遅い馬。'},
-  {type:'4',q:'「<span class="yoji">鳶が鷹を生む</span>」の意味は？',c:['平凡な親からすぐれた子が生まれること','親に似て平凡な子であること','油断は禁物であること','努力が実ること'],a:0,m:'鳶（とんび／とび）が鷹を生む。'},
-  {type:'ox',q:'<span class="yoji">蟹は甲羅に似せて穴を掘る</span>は、人は分相応の言動をするものだということ。',a:true,m:'身の程・分相応のたとえ。'},
-  {type:'4',q:'「前車の<span class="yoji">轍</span>を踏む」の意味は？',c:['前の人と同じ失敗をくり返すこと','先人の業績を受け継ぐこと','正しい道を進むこと','急いで物事を行うこと'],a:0,m:'前車の轍（てつ）を踏む＝前の車の通った跡（わだち）をたどる。'},
-],
-kunyomi:[
-  {type:'4',q:'「<span class="yoji">抓る</span>」の正しい読みは？',c:['つねる','こする','つかむ','ねじる'],a:0,m:'抓る（つね-る）。'},
-  {type:'4',q:'「<span class="yoji">抉る</span>」の正しい読みは？',c:['えぐる','けずる','ほる','さぐる'],a:0,m:'抉る（えぐ-る）。'},
-  {type:'ox',q:'<span class="yoji">嗤う</span>は、あざ笑う・冷笑する意の「わらう」である。',a:true,m:'嗤う（わら-う）＝あざける笑い。'},
-  {type:'4',q:'「<span class="yoji">論う</span>」の正しい読みは？',c:['あげつらう','うやまう','つくろう','まどう'],a:0,m:'論う（あげつら-う）＝欠点などをことさら言い立てる。'},
-  {type:'4',q:'「<span class="yoji">苛む</span>」の正しい読みは？',c:['さいなむ','いどむ','うらむ','ねたむ'],a:0,m:'苛む（さいな-む）＝責め苦しめる。'},
-  {type:'ox',q:'<span class="yoji">嘶く</span>は、馬が「いななく」ことである。',a:true,m:'嘶く（いなな-く）。'},
-  {type:'4',q:'「<span class="yoji">嘲る</span>」の正しい読みは？',c:['あざける','ののしる','いつわる','あなどる'],a:0,m:'嘲る（あざけ-る）。'},
-  {type:'4',q:'「<span class="yoji">寿ぐ</span>（言祝ぐ）」の正しい読みは？',c:['ことほぐ','あおぐ','つなぐ','いそぐ'],a:0,m:'寿ぐ／言祝ぐ（ことほ-ぐ）＝祝いの言葉を述べる。'},
-  {type:'ox',q:'<span class="yoji">縋る</span>は、たよりにしてつかまる「すがる」である。',a:true,m:'縋る（すが-る）。'},
-  {type:'4',q:'「<span class="yoji">弄ぶ</span>」の正しい読みは？',c:['もてあそぶ','たくらむ','あなどる','いつわる'],a:0,m:'弄ぶ（もてあそ-ぶ）。'},
-  {type:'4',q:'「<span class="yoji">啜る</span>」の正しい読みは？',c:['すする','むさぼる','したたる','こぼす'],a:0,m:'啜る（すす-る）。'},
-  {type:'ox',q:'<span class="yoji">嗜む</span>は、好んで親しむ・心得がある意の「たしなむ」である。',a:true,m:'嗜む（たしな-む）。'},
-  {type:'4',q:'「<span class="yoji">嘯く</span>」の正しい読みは？',c:['うそぶく','つぶやく','ささやく','どなる'],a:0,m:'嘯く（うそぶ-く）＝とぼける・大きなことを言う。'},
-  {type:'4',q:'「<span class="yoji">諫める</span>」の正しい読みは？',c:['いさめる','なだめる','とがめる','せめる'],a:0,m:'諫める（いさ-める）＝目上の人に忠告する。'},
-  {type:'ox',q:'<span class="yoji">訛る</span>は、発音がなまる「なまる」である。',a:true,m:'訛る（なま-る）。'},
-  {type:'4',q:'「<span class="yoji">拵える</span>」の正しい読みは？',c:['こしらえる','たくわえる','ととのえる','そなえる'],a:0,m:'拵える（こしら-える）＝作る・用意する。'},
-  {type:'4',q:'「<span class="yoji">設える</span>」の正しい読みは？',c:['しつらえる','たくわえる','こしらえる','あつらえる'],a:0,m:'設える（しつら-える）＝部屋などを整え備える。'},
-  {type:'ox',q:'手紙や文章を書く意の「認める」は「<span class="yoji">したためる</span>」と読む。',a:true,m:'認める（したた-める）。「みとめる」とは別の訓。'},
-  {type:'4',q:'「<span class="yoji">軋む</span>」の正しい読みは？',c:['きしむ','ゆがむ','たわむ','ひずむ'],a:0,m:'軋む（きし-む）。'},
-  {type:'4',q:'「<span class="yoji">燻す</span>」の正しい読みは？',c:['いぶす','こがす','ただす','ふかす'],a:0,m:'燻す（いぶ-す）。「燻る」は「くすぶる」。'},
-  {type:'ox',q:'<span class="yoji">蟠る</span>は、心にしこりが残る「わだかまる」である。',a:true,m:'蟠る（わだかま-る）。'},
-  {type:'4',q:'「<span class="yoji">蠢く</span>」の正しい読みは？',c:['うごめく','ひしめく','うずまく','はためく'],a:0,m:'蠢く（うごめ-く）＝虫などがもぞもぞ動く。'},
-  {type:'4',q:'「<span class="yoji">跪く</span>」の正しい読みは？',c:['ひざまずく','つまずく','うずくまる','かしずく'],a:0,m:'跪く（ひざまず-く）。'},
-  {type:'ox',q:'<span class="yoji">蹲る</span>は、体を丸めてしゃがむ「うずくまる」である。',a:true,m:'蹲る（うずくま-る）。'},
-  {type:'4',q:'「<span class="yoji">屯する</span>」の正しい読みは？',c:['たむろする','てっする','ふんする','りっする'],a:0,m:'屯する（たむろ-する）＝人が群れ集まる。'},
-  {type:'4',q:'「<span class="yoji">嵩む</span>」の正しい読みは？',c:['かさむ','はずむ','ひそむ','たるむ'],a:0,m:'嵩む（かさ-む）＝数量・費用が増える。'},
-  {type:'ox',q:'<span class="yoji">拗ねる</span>は、すなおでなくひがむ「すねる」である。',a:true,m:'拗ねる（す-ねる）。'},
-  {type:'4',q:'「<span class="yoji">強ち</span>」の正しい読みは？',c:['あながち','まちまち','たちまち','あらかた'],a:0,m:'強ち（あなが-ち）＝（打消を伴い）必ずしも。'},
-  {type:'4',q:'「<span class="yoji">些か</span>」の正しい読みは？',c:['いささか','わずか','はるか','にわか'],a:0,m:'些か（いささ-か）＝ほんの少し。'},
-  {type:'ox',q:'<span class="yoji">専ら</span>は、そのことばかりする「もっぱら」である。',a:true,m:'専ら（もっぱ-ら）。'},
-],
-busyu:[
-  {type:'4',q:'「<span class="yoji">鼻</span>」の部首は？',c:['鼻','田','目','廾'],a:0,m:'「鼻」は一字で部首。「鼻」を部首とする漢字は少ない。'},
-  {type:'4',q:'「<span class="yoji">裁</span>」の部首は？',c:['衣','戈','十','土'],a:0,m:'「裁」の部首は衣（ころも）。'},
-  {type:'ox',q:'「黒」の部首は「黒」（くろ）である。',a:true,m:'「黒」「黙」などは黒が部首。'},
-  {type:'4',q:'「<span class="yoji">興</span>」の部首は？',c:['臼','八','一','寸'],a:0,m:'「興」の部首は臼（うす）。'},
-  {type:'4',q:'「<span class="yoji">表</span>」の部首は？',c:['衣','一','土','二'],a:0,m:'「表」の部首は衣（ころも）。'},
-  {type:'ox',q:'「街」の部首は「行」（ぎょうがまえ・ゆきがまえ）である。',a:true,m:'「街」「衝」「衛」などの部首は行。'},
-  {type:'4',q:'「<span class="yoji">疑</span>」の部首は？',c:['疋','匕','矢','子'],a:0,m:'「疑」の部首は疋（ひき）。'},
-  {type:'4',q:'「<span class="yoji">望</span>」の部首は？',c:['月','王','亡','一'],a:0,m:'「望」の部首は月（つき）。'},
-  {type:'ox',q:'「哀」の部首は「口」である。',a:true,m:'「哀」の部首は口（くち）。'},
-  {type:'4',q:'「受」「取」に共通する部首は？',c:['又','爪','耳','寸'],a:0,m:'又（また）。受・取・友・反などに共通。'},
-  {type:'4',q:'「<span class="yoji">慶</span>」の部首は？',c:['心','广','鹿','大'],a:0,m:'「慶」の部首は心（こころ）。'},
-  {type:'ox',q:'「闘」の部首は「門」（もんがまえ・たたかいがまえ）である。',a:true,m:'「闘」の部首は門。'},
-  {type:'4',q:'「<span class="yoji">協</span>」の部首は？',c:['十','力','口','一'],a:0,m:'「協」の部首は十（じゅう）。力ではない点に注意。'},
-  {type:'4',q:'「<span class="yoji">凹</span>」の総画数は？',c:['5画','4画','6画','7画'],a:0,m:'「凹」は5画。'},
-  {type:'ox',q:'「区」の総画数は4画である。',a:true,m:'「区」は4画（匚＝2画＋㐅＝2画）。'},
-  {type:'4',q:'「<span class="yoji">弓</span>」の総画数は？',c:['3画','2画','4画','5画'],a:0,m:'「弓」は3画。'},
-  {type:'4',q:'「<span class="yoji">与</span>」の総画数は？',c:['3画','4画','5画','2画'],a:0,m:'「与」は3画。'},
-  {type:'ox',q:'「断」の部首は「斤」（おのづくり）である。',a:true,m:'「断」「新」「斬」などは斤が部首。'},
-  {type:'4',q:'「<span class="yoji">武</span>」の部首は？',c:['止','弋','戈','一'],a:0,m:'「武」の部首は止（とめる・とめへん）。'},
-  {type:'4',q:'「<span class="yoji">率</span>」の部首は？',c:['玄','亠','十','氵'],a:0,m:'「率」の部首は玄（げん）。'},
-  {type:'ox',q:'「田」のように囲む形の漢字は、下の横画（口を閉じる線）を最後に書く。',a:true,m:'「田」「国」など、囲みを閉じる線は最後に書くのが原則。'},
-  {type:'4',q:'「<span class="yoji">及</span>」の総画数は？',c:['3画','2画','4画','5画'],a:0,m:'「及」は3画。'},
-  {type:'4',q:'「中」を書くとき、つらぬく縦の棒は何画目に書く？',c:['最後（4画目）','1画目','2画目','3画目'],a:0,m:'「中」は囲み（口）を書いてから、縦棒を最後に通す。'},
-  {type:'ox',q:'漢字は原則として「上から下へ」「左から右へ」書き進める。',a:true,m:'筆順の二大原則。'},
-  {type:'4',q:'「<span class="yoji">衷</span>」の部首は？',c:['衣','口','一','中'],a:0,m:'「衷」の部首は衣（ころも）。'},
-  {type:'4',q:'「<span class="yoji">賊</span>」の部首は？',c:['貝','戈','十','一'],a:0,m:'「賊」の部首は貝（かい・かいへん）。'},
-],
+/* =========================================================
+   漢字検定1級クイズ【壱】
+   - 4択 + ○× ミックス / 10問ランダム
+   - 120秒 + 残り時間ボーナス / 正解+10点+5秒 / 不正解-5秒
+   - 表示時に選択肢シャッフル（位置の偏り防止）
+   - ジャンル別ローカルランキング(localStorage)
+   - 間違い復習 / canvas背景の動的リサイズ
+   ========================================================= */
+
+/* ---------- 問題データ ----------
+   4択 : {q, t:'読み'等, a:正解, w:[誤答3つ], e:解説, target:強調表示する語(任意)}
+   ○× : {q, ox:true/false, e:解説}
+*/
+const QUIZ = {
+  "jukuji": {
+    "name": "熟字訓・当て字",
+    "ji": "熟",
+    "desc": "烏賊＝いか、章魚＝たこ…難読の動植物名",
+    "pool": [
+      {
+        "q": "「<span class=\"target\">海胆</span>」の正しい読みは？",
+        "a": "うに",
+        "w": [
+          "なまこ",
+          "ひとで",
+          "くらげ"
+        ],
+        "e": "海胆／海栗（うに）＝とげに覆われた棘皮（きょくひ）動物。"
+      },
+      {
+        "q": "「<span class=\"target\">烏賊</span>」の正しい読みは？",
+        "a": "いか",
+        "w": [
+          "たこ",
+          "えび",
+          "かに"
+        ],
+        "e": "烏賊（いか）＝墨を吐く軟体動物。"
+      },
+      {
+        "q": "<span class=\"target\">信天翁</span>は「あほうどり」と読む。",
+        "ox": true,
+        "e": "信天翁（あほうどり）＝大型の海鳥。"
+      },
+      {
+        "q": "「<span class=\"target\">旗魚</span>」の正しい読みは？",
+        "a": "かじき",
+        "w": [
+          "まぐろ",
+          "かつお",
+          "ぶり"
+        ],
+        "e": "旗魚（かじき）＝長い吻（ふん）をもつ大型魚。"
+      },
+      {
+        "q": "「<span class=\"target\">守宮</span>」の正しい読みは？",
+        "a": "やもり",
+        "w": [
+          "いもり",
+          "とかげ",
+          "かなへび"
+        ],
+        "e": "守宮／家守（やもり）＝家屋にすむ爬虫類。"
+      },
+      {
+        "q": "<span class=\"target\">蒲公英</span>は「たんぽぽ」と読む。",
+        "ox": true,
+        "e": "蒲公英（たんぽぽ）。"
+      },
+      {
+        "q": "「<span class=\"target\">公孫樹</span>」の正しい読みは？",
+        "a": "いちょう",
+        "w": [
+          "かえで",
+          "けやき",
+          "つばき"
+        ],
+        "e": "公孫樹／銀杏（いちょう）。"
+      },
+      {
+        "q": "「<span class=\"target\">木通</span>」の正しい読みは？",
+        "a": "あけび",
+        "w": [
+          "びわ",
+          "ざくろ",
+          "いちじく"
+        ],
+        "e": "木通／通草（あけび）。"
+      },
+      {
+        "q": "<span class=\"target\">山毛欅</span>は「ぶな」と読む。",
+        "ox": true,
+        "e": "山毛欅（ぶな）＝落葉高木。"
+      },
+      {
+        "q": "「<span class=\"target\">馴鹿</span>」の正しい読みは？",
+        "a": "となかい",
+        "w": [
+          "かもしか",
+          "いのしし",
+          "らくだ"
+        ],
+        "e": "馴鹿（となかい）。"
+      },
+      {
+        "q": "「<span class=\"target\">海獺</span>」の正しい読みは？",
+        "a": "らっこ",
+        "w": [
+          "あしか",
+          "せいうち",
+          "あざらし"
+        ],
+        "e": "海獺／猟虎（らっこ）。"
+      },
+      {
+        "q": "「<span class=\"target\">樹懶</span>」の正しい読みは？",
+        "a": "なまけもの",
+        "w": [
+          "やまあらし",
+          "むささび",
+          "こうもり"
+        ],
+        "e": "樹懶（なまけもの）＝動きの遅い哺乳類。"
+      },
+      {
+        "q": "<span class=\"target\">翻車魚</span>は「まんぼう」と読む。",
+        "ox": true,
+        "e": "翻車魚（まんぼう）。"
+      },
+      {
+        "q": "「<span class=\"target\">馬鈴薯</span>」の正しい読みは？",
+        "a": "じゃがいも",
+        "w": [
+          "さつまいも",
+          "さといも",
+          "やまいも"
+        ],
+        "e": "馬鈴薯（じゃがいも）。"
+      },
+      {
+        "q": "「<span class=\"target\">章魚</span>」の正しい読みは？",
+        "a": "たこ",
+        "w": [
+          "いか",
+          "くらげ",
+          "なまこ"
+        ],
+        "e": "章魚／鮹（たこ）＝八本足の軟体動物。"
+      },
+      {
+        "q": "鳥を表す場合、<span class=\"target\">翡翠</span>は「かわせみ」とも読む。",
+        "ox": true,
+        "e": "翡翠（かわせみ／ひすい）。鳥のカワセミと宝石のヒスイ。"
+      },
+      {
+        "q": "「<span class=\"target\">軍鶏</span>」の正しい読みは？",
+        "a": "しゃも",
+        "w": [
+          "ちゃぼ",
+          "うこっけい",
+          "きじ"
+        ],
+        "e": "軍鶏（しゃも）＝闘鶏用に飼われる鶏の品種。"
+      },
+      {
+        "q": "「<span class=\"target\">河豚</span>」の正しい読みは？",
+        "a": "ふぐ",
+        "w": [
+          "まぐろ",
+          "たい",
+          "さば"
+        ],
+        "e": "河豚（ふぐ）。"
+      },
+      {
+        "q": "<span class=\"target\">膃肭臍</span>は「おっとせい」と読む。",
+        "ox": true,
+        "e": "膃肭臍（おっとせい）＝アシカ科の海獣。"
+      },
+      {
+        "q": "「<span class=\"target\">鸚鵡</span>」の正しい読みは？",
+        "a": "おうむ",
+        "w": [
+          "いんこ",
+          "ふくろう",
+          "つばめ"
+        ],
+        "e": "鸚鵡（おうむ）＝人の声をまねる鳥。"
+      },
+      {
+        "q": "「<span class=\"target\">海鞘</span>」の正しい読みは？",
+        "a": "ほや",
+        "w": [
+          "なまこ",
+          "くらげ",
+          "ひとで"
+        ],
+        "e": "海鞘（ほや）＝海産動物。珍味として食用にも。"
+      },
+      {
+        "q": "「<span class=\"target\">蜻蛉</span>」の正しい読み（昆虫）は？",
+        "a": "とんぼ",
+        "w": [
+          "ちょう",
+          "せみ",
+          "はち"
+        ],
+        "e": "蜻蛉（とんぼ／かげろう）。"
+      },
+      {
+        "q": "<span class=\"target\">井守</span>は「いもり」と読む。",
+        "ox": true,
+        "e": "井守（いもり）＝水辺にすむ両生類。「守宮（やもり）」と区別。"
+      },
+      {
+        "q": "「<span class=\"target\">秋刀魚</span>」の正しい読みは？",
+        "a": "さんま",
+        "w": [
+          "いわし",
+          "あじ",
+          "さわら"
+        ],
+        "e": "秋刀魚（さんま）＝秋の刀のような魚。"
+      },
+      {
+        "q": "「<span class=\"target\">公魚</span>」の正しい読みは？",
+        "a": "わかさぎ",
+        "w": [
+          "どじょう",
+          "なまず",
+          "うなぎ"
+        ],
+        "e": "公魚（わかさぎ）。"
+      },
+      {
+        "q": "<span class=\"target\">土竜</span>は「もぐら」と読む。",
+        "ox": true,
+        "e": "土竜（もぐら）。"
+      },
+      {
+        "q": "「<span class=\"target\">石榴</span>」の正しい読みは？",
+        "a": "ざくろ",
+        "w": [
+          "いちじく",
+          "びわ",
+          "あけび"
+        ],
+        "e": "石榴／柘榴（ざくろ）＝赤い種子の多い果実。"
+      },
+      {
+        "q": "「<span class=\"target\">海象</span>」の正しい読みは？",
+        "a": "せいうち",
+        "w": [
+          "あしか",
+          "おっとせい",
+          "じゅごん"
+        ],
+        "e": "海象（せいうち）＝長い牙をもつ海獣。"
+      },
+      {
+        "q": "<span class=\"target\">百足</span>は「むかで」と読む。",
+        "ox": true,
+        "e": "百足（むかで）＝多くの脚をもつ節足動物。"
+      }
+    ]
+  },
+  "kokuji": {
+    "name": "国字（和製漢字）",
+    "ji": "国",
+    "desc": "凪・峠・躾・颪…日本で生まれた漢字",
+    "pool": [
+      {
+        "q": "「国字」とは、漢字をまねて日本で独自に作られた文字のことである。",
+        "ox": true,
+        "e": "国字（こくじ）。「峠」「凪」「働」など。"
+      },
+      {
+        "q": "「<span class=\"target\">凪</span>」の正しい読みは？",
+        "a": "なぎ",
+        "w": [
+          "あらし",
+          "しぐれ",
+          "みぞれ"
+        ],
+        "e": "凪（なぎ）＝風がやみ波が穏やかなこと。"
+      },
+      {
+        "q": "「<span class=\"target\">峠</span>」の正しい読みは？",
+        "a": "とうげ",
+        "w": [
+          "みさき",
+          "たに",
+          "さか"
+        ],
+        "e": "峠（とうげ）＝山道の上り下りの境。"
+      },
+      {
+        "q": "<span class=\"target\">榊</span>（さかき）は、神事に用いる常緑樹を表す国字である。",
+        "ox": true,
+        "e": "榊（さかき）＝「木」＋「神」。"
+      },
+      {
+        "q": "「<span class=\"target\">辻</span>」の正しい読みは？",
+        "a": "つじ",
+        "w": [
+          "まち",
+          "みち",
+          "はし"
+        ],
+        "e": "辻（つじ）＝十字路。"
+      },
+      {
+        "q": "「<span class=\"target\">躾</span>」の正しい読みは？",
+        "a": "しつけ",
+        "w": [
+          "たしなみ",
+          "ほまれ",
+          "つとめ"
+        ],
+        "e": "躾（しつけ）＝「身」＋「美」。"
+      },
+      {
+        "q": "国字の多くは音読みを持たず、訓読みだけである。",
+        "ox": true,
+        "e": "日本で作られたため、原則として音読みがない（例外あり）。"
+      },
+      {
+        "q": "国字「<span class=\"target\">働</span>」が例外的にもつ音読みは？",
+        "a": "ドウ",
+        "w": [
+          "コウ",
+          "ロウ",
+          "ボウ"
+        ],
+        "e": "働（ドウ・はたら-く）＝音読みをもつ珍しい国字。"
+      },
+      {
+        "q": "「<span class=\"target\">雫</span>」の正しい読みは？",
+        "a": "しずく",
+        "w": [
+          "あられ",
+          "つゆ",
+          "しぶき"
+        ],
+        "e": "雫（しずく）＝「雨」＋「下」。"
+      },
+      {
+        "q": "<span class=\"target\">凧</span>は「たこ」と読む国字である。",
+        "ox": true,
+        "e": "凧（たこ）＝空に揚げるたこ。"
+      },
+      {
+        "q": "「<span class=\"target\">凩</span>」の正しい読みは？",
+        "a": "こがらし",
+        "w": [
+          "かまいたち",
+          "つむじ",
+          "たつまき"
+        ],
+        "e": "凩（こがらし）＝木を吹き枯らす冷たい風。"
+      },
+      {
+        "q": "「<span class=\"target\">颪</span>」の正しい読みは？",
+        "a": "おろし",
+        "w": [
+          "なだれ",
+          "ひょう",
+          "みぞれ"
+        ],
+        "e": "颪（おろし）＝山から吹き下ろす風。六甲颪など。"
+      },
+      {
+        "q": "<span class=\"target\">鰯</span>は「いわし」と読む国字である。",
+        "ox": true,
+        "e": "鰯（いわし）＝「魚」＋「弱」。"
+      },
+      {
+        "q": "「<span class=\"target\">鱈</span>」の正しい読みは？",
+        "a": "たら",
+        "w": [
+          "ます",
+          "ふな",
+          "こい"
+        ],
+        "e": "鱈（たら）＝「魚」＋「雪」。"
+      },
+      {
+        "q": "「<span class=\"target\">鯰</span>」の正しい読みは？",
+        "a": "なまず",
+        "w": [
+          "どじょう",
+          "うなぎ",
+          "すずき"
+        ],
+        "e": "鯰（なまず）。"
+      },
+      {
+        "q": "<span class=\"target\">鯱</span>は「しゃち」と読む国字である。",
+        "ox": true,
+        "e": "鯱（しゃち）＝城の屋根の装飾「しゃちほこ」など。"
+      },
+      {
+        "q": "「<span class=\"target\">裃</span>」の正しい読みは？",
+        "a": "かみしも",
+        "w": [
+          "はかま",
+          "たすき",
+          "ふんどし"
+        ],
+        "e": "裃（かみしも）＝武士の礼装。「上下」を組み合わせた国字。"
+      },
+      {
+        "q": "「<span class=\"target\">噺</span>」の正しい読みは？",
+        "a": "はなし",
+        "w": [
+          "うわさ",
+          "かたり",
+          "ことば"
+        ],
+        "e": "噺（はなし）＝落語などの「はなし」。"
+      },
+      {
+        "q": "<span class=\"target\">俤</span>は「おもかげ」と読む国字である。",
+        "ox": true,
+        "e": "俤（おもかげ）。"
+      },
+      {
+        "q": "「<span class=\"target\">鋲</span>」の正しい読みは？",
+        "a": "びょう",
+        "w": [
+          "くぎ",
+          "かすがい",
+          "ねじ"
+        ],
+        "e": "鋲（びょう）＝画鋲（がびょう）の「びょう」。"
+      },
+      {
+        "q": "「<span class=\"target\">枠</span>」の正しい読みは？",
+        "a": "わく",
+        "w": [
+          "かど",
+          "ふち",
+          "すみ"
+        ],
+        "e": "枠（わく）。"
+      },
+      {
+        "q": "<span class=\"target\">栃</span>（とち）は地名にも使われる国字である。",
+        "ox": true,
+        "e": "栃（とち）＝栃木県の「栃」。"
+      },
+      {
+        "q": "「<span class=\"target\">樫</span>」の正しい読みは？",
+        "a": "かし",
+        "w": [
+          "けやき",
+          "ひのき",
+          "すぎ"
+        ],
+        "e": "樫（かし）＝堅い木。「木」＋「堅」。"
+      },
+      {
+        "q": "「<span class=\"target\">畑</span>」の正しい読みは？",
+        "a": "はたけ",
+        "w": [
+          "たんぼ",
+          "あぜ",
+          "うね"
+        ],
+        "e": "畑／畠（はたけ）＝水を使わない耕地。国字。"
+      },
+      {
+        "q": "<span class=\"target\">麿</span>は「まろ」と読む国字である。",
+        "ox": true,
+        "e": "麿（まろ）＝人名などに使う。"
+      },
+      {
+        "q": "「<span class=\"target\">喰</span>」の正しい読みは？",
+        "a": "くう",
+        "w": [
+          "のむ",
+          "かむ",
+          "すう"
+        ],
+        "e": "喰（く-う）＝「食う」の俗字的な国字。"
+      },
+      {
+        "q": "「<span class=\"target\">毟る</span>」の正しい読みは？",
+        "a": "むしる",
+        "w": [
+          "ちぎる",
+          "ねじる",
+          "こする"
+        ],
+        "e": "毟る（むし-る）＝「少」＋「毛」。毛をむしる。"
+      }
+    ]
+  },
+  "yoji4": {
+    "name": "四字熟語",
+    "ji": "四",
+    "desc": "杓子定規・周章狼狽・牽強付会など",
+    "pool": [
+      {
+        "q": "「<span class=\"target\">杓子定規</span>」の意味は？",
+        "a": "形式や規則にとらわれ融通がきかないこと",
+        "w": [
+          "大酒を飲み大食いすること",
+          "風雨に苦労を重ねること",
+          "落ち着いて動じないこと"
+        ],
+        "e": "杓子定規（しゃくしじょうぎ）＝一つの基準ですべてを律しようとすること。"
+      },
+      {
+        "q": "「あわてふためき、うろたえ騒ぐこと」を表す四字熟語は？",
+        "a": "周章狼狽",
+        "w": [
+          "泰然自若",
+          "付和雷同",
+          "面従腹背"
+        ],
+        "e": "周章狼狽（しゅうしょうろうばい）。"
+      },
+      {
+        "q": "<span class=\"target\">玉石混淆</span>は、すぐれた物とつまらない物が入りまじっていること。",
+        "ox": true,
+        "e": "玉石混淆／混交（ぎょくせきこんこう）。"
+      },
+      {
+        "q": "「先人の作品の発想を生かしつつ、独自の表現に作りかえること」を表すのは？",
+        "a": "換骨奪胎",
+        "w": [
+          "焚書坑儒",
+          "付和雷同",
+          "羊頭狗肉"
+        ],
+        "e": "換骨奪胎（かんこつだったい）。"
+      },
+      {
+        "q": "「<span class=\"target\">牽強付会</span>」の意味は？",
+        "a": "都合のよいように無理にこじつけること",
+        "w": [
+          "落ち着いて動じないこと",
+          "才知が活発に現れること",
+          "見かけ倒しであること"
+        ],
+        "e": "牽強付会（けんきょうふかい）。"
+      },
+      {
+        "q": "<span class=\"target\">傍若無人</span>は、人前をはばからず勝手気ままに振る舞うこと。",
+        "ox": true,
+        "e": "傍若無人（ぼうじゃくぶじん）＝傍らに人無きが若（ごと）し。"
+      },
+      {
+        "q": "「うわべは従うふりをして、内心では背くこと」を表す四字熟語は？",
+        "a": "面従腹背",
+        "w": [
+          "唯々諾々",
+          "慇懃無礼",
+          "才気煥発"
+        ],
+        "e": "面従腹背（めんじゅうふくはい）。"
+      },
+      {
+        "q": "「生き残るか滅びるかの瀬戸際」を表す四字熟語は？",
+        "a": "危急存亡",
+        "w": [
+          "旗幟鮮明",
+          "面壁九年",
+          "比翼連理"
+        ],
+        "e": "危急存亡（ききゅうそんぼう）＝危急存亡の秋（とき）。"
+      },
+      {
+        "q": "<span class=\"target\">泰然自若</span>は、落ち着いて物事に動じないさまをいう。",
+        "ox": true,
+        "e": "泰然自若（たいぜんじじゃく）。"
+      },
+      {
+        "q": "「大酒を飲み、大量に食べること」を表す四字熟語は？",
+        "a": "鯨飲馬食",
+        "w": [
+          "櫛風沐雨",
+          "曲学阿世",
+          "乾坤一擲"
+        ],
+        "e": "鯨飲馬食（げいいんばしょく）＝鯨のように飲み馬のように食う。"
+      },
+      {
+        "q": "「風雨にさらされて苦労を重ねること」を表すのは？",
+        "a": "櫛風沐雨",
+        "w": [
+          "紫電一閃",
+          "雲散霧消",
+          "沈魚落雁"
+        ],
+        "e": "櫛風沐雨（しっぷうもくう）＝風で髪をくしけずり、雨で身を洗う。"
+      },
+      {
+        "q": "<span class=\"target\">紫電一閃</span>は、きわめて短い時間や、とっさのひらめきのたとえ。",
+        "ox": true,
+        "e": "紫電一閃（しでんいっせん）。"
+      },
+      {
+        "q": "「書物を焼き、儒者を生き埋めにした思想弾圧」を指す四字熟語は？",
+        "a": "焚書坑儒",
+        "w": [
+          "臥薪嘗胆",
+          "捲土重来",
+          "内憂外患"
+        ],
+        "e": "焚書坑儒（ふんしょこうじゅ）＝秦の始皇帝の故事。"
+      },
+      {
+        "q": "「<span class=\"target\">羊頭狗肉</span>」の意味は？",
+        "a": "見かけと中身が違うこと",
+        "w": [
+          "立派で堂々としていること",
+          "最後まで勢いがあること",
+          "互いに助け合うこと"
+        ],
+        "e": "羊頭狗肉（ようとうくにく）＝羊の頭を看板に、犬の肉を売る。"
+      },
+      {
+        "q": "<span class=\"target\">竜頭蛇尾</span>は、始めは盛んで終わりがふるわないこと。",
+        "ox": true,
+        "e": "竜頭蛇尾（りゅうとうだび）。"
+      },
+      {
+        "q": "「怒りや不満をじっとこらえ、軽々しく動かないこと」を表すのは？",
+        "a": "隠忍自重",
+        "w": [
+          "周章狼狽",
+          "大言壮語",
+          "付和雷同"
+        ],
+        "e": "隠忍自重（いんにんじちょう）。"
+      },
+      {
+        "q": "「目的のため、長い年月じっと忍耐強く努力すること」を表すのは？",
+        "a": "面壁九年",
+        "w": [
+          "一朝一夕",
+          "付和雷同",
+          "大言壮語"
+        ],
+        "e": "面壁九年（めんぺきくねん）＝達磨が壁に向かい九年座禅した故事。"
+      },
+      {
+        "q": "<span class=\"target\">比翼連理</span>は、男女の情愛が深く仲むつまじいことのたとえである。",
+        "ox": true,
+        "e": "比翼連理（ひよくれんり）＝比翼の鳥と連理の枝。"
+      },
+      {
+        "q": "「あとかたもなく消えてなくなること」を表す四字熟語は？",
+        "a": "雲散霧消",
+        "w": [
+          "沈魚落雁",
+          "内憂外患",
+          "流言飛語"
+        ],
+        "e": "雲散霧消（うんさんむしょう）。"
+      },
+      {
+        "q": "絶世の美人の形容として用いられる四字熟語は？",
+        "a": "沈魚落雁",
+        "w": [
+          "内憂外患",
+          "流言飛語",
+          "焚書坑儒"
+        ],
+        "e": "沈魚落雁（ちんぎょらくがん）＝魚は沈み雁は落ちるほどの美しさ。"
+      },
+      {
+        "q": "<span class=\"target\">内憂外患</span>は、内部の心配ごとと外部からの心配ごとが重なること。",
+        "ox": true,
+        "e": "内憂外患（ないゆうがいかん）。"
+      },
+      {
+        "q": "「根拠のないうわさ。デマ」を表す四字熟語は？",
+        "a": "流言飛語",
+        "w": [
+          "玉石混淆",
+          "鯨飲馬食",
+          "慇懃無礼"
+        ],
+        "e": "流言飛語／蜚語（りゅうげんひご）。"
+      },
+      {
+        "q": "「すぐれた才知が活発にあらわれること」を表すのは？",
+        "a": "才気煥発",
+        "w": [
+          "面従腹背",
+          "唯々諾々",
+          "櫛風沐雨"
+        ],
+        "e": "才気煥発（さいきかんぱつ）。"
+      },
+      {
+        "q": "<span class=\"target\">付和雷同</span>は、確たる考えなく軽々しく他人の意見に従うこと。",
+        "ox": true,
+        "e": "付和雷同（ふわらいどう）。"
+      },
+      {
+        "q": "「<span class=\"target\">気炎万丈</span>」の意味は？",
+        "a": "意気込みが盛んなこと",
+        "w": [
+          "静かで控えめなこと",
+          "見かけ倒しなこと",
+          "行き詰まること"
+        ],
+        "e": "気炎万丈（きえんばんじょう）＝燃え上がる炎のように意気盛ん。"
+      },
+      {
+        "q": "<span class=\"target\">換骨奪胎</span>は、他人の作品をそっくりそのまま盗用することをいう。",
+        "ox": false,
+        "e": "誤り。発想を生かしつつ自分のものに作りかえること。盗用は「剽窃（ひょうせつ）」。"
+      },
+      {
+        "q": "「<span class=\"target\">大言壮語</span>」の意味は？",
+        "a": "実力以上に大きなことを言うこと",
+        "w": [
+          "形式にとらわれること",
+          "落ち着いて動じないこと",
+          "あわてふためくこと"
+        ],
+        "e": "大言壮語（たいげんそうご）＝威勢のよいおおげさな物言い。"
+      },
+      {
+        "q": "<span class=\"target\">焚書坑儒</span>は、秦の始皇帝による思想統制の故事に由来する。",
+        "ox": true,
+        "e": "焚書坑儒（ふんしょこうじゅ）。"
+      }
+    ]
+  },
+  "kotowaza": {
+    "name": "故事・諺",
+    "ji": "諺",
+    "desc": "朝令暮改・背水の陣・登竜門など",
+    "pool": [
+      {
+        "q": "「<span class=\"target\">蟷螂の斧</span>」の意味は？",
+        "a": "弱者が力をわきまえず強者に立ち向かうこと",
+        "w": [
+          "油断して失敗すること",
+          "弱者どうしが争うこと",
+          "努力が必ず報われること"
+        ],
+        "e": "蟷螂（とうろう＝かまきり）の斧。"
+      },
+      {
+        "q": "<span class=\"target\">烏合の衆</span>は、規律も統一もない人々の集まりのこと。",
+        "ox": true,
+        "e": "烏合の衆（うごうのしゅう）＝からすの群れのよう。"
+      },
+      {
+        "q": "「命令や方針がころころ変わって定まらないこと」を表すのは？",
+        "a": "朝令暮改",
+        "w": [
+          "右往左往",
+          "付和雷同",
+          "五里霧中"
+        ],
+        "e": "朝令暮改（ちょうれいぼかい）＝朝出した命令を夕方には改める。"
+      },
+      {
+        "q": "「団体・党派の中心に立って指導すること」を表す故事成語は？",
+        "a": "牛耳を執る",
+        "w": [
+          "蛇足を加える",
+          "株を守る",
+          "轍を踏む"
+        ],
+        "e": "牛耳を執る（ぎゅうじをとる）＝牛耳る（ぎゅうじる）。"
+      },
+      {
+        "q": "<span class=\"target\">顰に倣う</span>（ひそみにならう）は、むやみに人のまねをすること。",
+        "ox": true,
+        "e": "西施（せいし）が眉をひそめた美しさを醜女がまねた故事。"
+      },
+      {
+        "q": "「方法を誤っては目的を達せられないこと」を表すのは？",
+        "a": "木に縁りて魚を求む",
+        "w": [
+          "覆水盆に返らず",
+          "五十歩百歩",
+          "蛍雪の功"
+        ],
+        "e": "木に縁りて魚を求む（きによりてうおをもとむ）。"
+      },
+      {
+        "q": "「すぐれた人物は多くの中にいても自然に頭角を現すこと」を表すのは？",
+        "a": "嚢中の錐",
+        "w": [
+          "焼け石に水",
+          "背水の陣",
+          "紺屋の白袴"
+        ],
+        "e": "嚢中（のうちゅう）の錐（きり）＝袋の中の錐は先が突き出る。"
+      },
+      {
+        "q": "「完璧」の語源は、傷のない宝玉を無事に持ち帰ったという故事である。",
+        "ox": true,
+        "e": "完璧（かんぺき）＝藺相如（りんしょうじょ）が璧（へき）を全うして帰った故事。"
+      },
+      {
+        "q": "「一歩も引けない決死の覚悟で事に当たること」を表すのは？",
+        "a": "背水の陣",
+        "w": [
+          "登竜門",
+          "焼け石に水",
+          "紺屋の白袴"
+        ],
+        "e": "背水（はいすい）の陣＝川を背に陣取り退路を断った韓信の故事。"
+      },
+      {
+        "q": "「そこを通れば立身出世できる、という関門」を表すのは？",
+        "a": "登竜門",
+        "w": [
+          "背水の陣",
+          "五里霧中",
+          "焼け石に水"
+        ],
+        "e": "登竜門（とうりゅうもん）＝鯉が竜門の急流を登れば竜になるという故事。"
+      },
+      {
+        "q": "<span class=\"target\">漱石枕流</span>（そうせきちんりゅう）は、誤りを認めず負け惜しみを言うことのたとえである。",
+        "ox": true,
+        "e": "石に漱（くちすす）ぎ流れに枕すと言い張った故事。夏目漱石の号の由来。"
+      },
+      {
+        "q": "「よけいな力添えをして、かえって害を与えること」を表すのは？",
+        "a": "助長",
+        "w": [
+          "圧巻",
+          "蛍雪の功",
+          "五十歩百歩"
+        ],
+        "e": "助長（じょちょう）＝苗を引っぱって枯らした故事。"
+      },
+      {
+        "q": "「事情がつかめず、方針も立たずに迷うこと」を表すのは？",
+        "a": "五里霧中",
+        "w": [
+          "朝令暮改",
+          "紺屋の白袴",
+          "焼け石に水"
+        ],
+        "e": "五里霧中（ごりむちゅう）＝五里四方に立ちこめた霧の中。"
+      },
+      {
+        "q": "「過ぎたるは猶（なお）及ばざるが如し」は、やり過ぎは足りないのと同じくよくない、という意味である。",
+        "ox": true,
+        "e": "論語のことば。中庸の大切さを説く。"
+      },
+      {
+        "q": "「古い習慣にとらわれて融通がきかないこと」を表すのは？",
+        "a": "株を守る",
+        "w": [
+          "蛍雪の功",
+          "画竜点睛",
+          "五十歩百歩"
+        ],
+        "e": "株を守る＝守株（しゅしゅ）。切り株を見張った故事。"
+      },
+      {
+        "q": "「小さなことを処理するのに大げさな手段を用いること」を表すのは？",
+        "a": "鶏を割くに牛刀を用う",
+        "w": [
+          "背水の陣",
+          "登竜門",
+          "焼け石に水"
+        ],
+        "e": "鶏（にわとり）を割（さ）くに焉（いずく）んぞ牛刀を用いん（論語）。"
+      },
+      {
+        "q": "「良薬は口に苦し」は、ためになる忠告ほど聞き入れにくいものだ、という意味である。",
+        "ox": true,
+        "e": "「忠言耳に逆らう」と対で使われる。"
+      },
+      {
+        "q": "「苦労して学問にはげむこと」を表す故事成語は？",
+        "a": "蛍雪の功",
+        "w": [
+          "画竜点睛",
+          "助長",
+          "蛇足"
+        ],
+        "e": "蛍雪の功（けいせつのこう）＝蛍の光・雪明かりで学んだ故事。"
+      },
+      {
+        "q": "「大事をなすには、まず手近なこと（言い出した者）から着手せよ」を表すのは？",
+        "a": "隗より始めよ",
+        "w": [
+          "背水の陣",
+          "焼け石に水",
+          "登竜門"
+        ],
+        "e": "先（ま）ず隗（かい）より始めよ＝郭隗（かくかい）が王に説いた故事。"
+      },
+      {
+        "q": "<span class=\"target\">断腸の思い</span>は、はらわたがちぎれるほどのつらく悲しい思いをいう。",
+        "ox": true,
+        "e": "子を捕らえられた母猿が悲しみのあまり腸（はらわた）がちぎれていた故事。"
+      },
+      {
+        "q": "「援助や努力がわずかで、ほとんど効き目がないこと」を表すのは？",
+        "a": "焼け石に水",
+        "w": [
+          "背水の陣",
+          "登竜門",
+          "五里霧中"
+        ],
+        "e": "焼け石に水＝熱した石に少量の水をかけてもすぐ蒸発する。"
+      },
+      {
+        "q": "「他人のために忙しく、自分のことには手が回らないこと」を表すのは？",
+        "a": "紺屋の白袴",
+        "w": [
+          "背水の陣",
+          "登竜門",
+          "焼け石に水"
+        ],
+        "e": "紺屋（こうや）の白袴（しろばかま）＝染め物屋が自分は白袴のまま。"
+      },
+      {
+        "q": "<span class=\"target\">駑馬に鞭打つ</span>は、能力の劣る自分が努力することをへりくだって言う語。",
+        "ox": true,
+        "e": "駑馬（どば）＝足の遅い馬。"
+      },
+      {
+        "q": "「<span class=\"target\">鳶が鷹を生む</span>」の意味は？",
+        "a": "平凡な親からすぐれた子が生まれること",
+        "w": [
+          "親に似て平凡な子であること",
+          "油断は禁物であること",
+          "努力が実ること"
+        ],
+        "e": "鳶（とんび／とび）が鷹を生む。"
+      },
+      {
+        "q": "<span class=\"target\">蟹は甲羅に似せて穴を掘る</span>は、人は分相応の言動をするものだということ。",
+        "ox": true,
+        "e": "身の程・分相応のたとえ。"
+      },
+      {
+        "q": "「前車の<span class=\"target\">轍</span>を踏む」の意味は？",
+        "a": "前の人と同じ失敗をくり返すこと",
+        "w": [
+          "先人の業績を受け継ぐこと",
+          "正しい道を進むこと",
+          "急いで物事を行うこと"
+        ],
+        "e": "前車の轍（てつ）を踏む＝前の車の通った跡（わだち）をたどる。"
+      }
+    ]
+  },
+  "kunyomi": {
+    "name": "一字訓読み",
+    "ji": "訓",
+    "desc": "抉る・嘶く・諫める・蹲る…一字の訓",
+    "pool": [
+      {
+        "q": "「<span class=\"target\">抓る</span>」の正しい読みは？",
+        "a": "つねる",
+        "w": [
+          "こする",
+          "つかむ",
+          "ねじる"
+        ],
+        "e": "抓る（つね-る）。"
+      },
+      {
+        "q": "「<span class=\"target\">抉る</span>」の正しい読みは？",
+        "a": "えぐる",
+        "w": [
+          "けずる",
+          "ほる",
+          "さぐる"
+        ],
+        "e": "抉る（えぐ-る）。"
+      },
+      {
+        "q": "<span class=\"target\">嗤う</span>は、あざ笑う・冷笑する意の「わらう」である。",
+        "ox": true,
+        "e": "嗤う（わら-う）＝あざける笑い。"
+      },
+      {
+        "q": "「<span class=\"target\">論う</span>」の正しい読みは？",
+        "a": "あげつらう",
+        "w": [
+          "うやまう",
+          "つくろう",
+          "まどう"
+        ],
+        "e": "論う（あげつら-う）＝欠点などをことさら言い立てる。"
+      },
+      {
+        "q": "「<span class=\"target\">苛む</span>」の正しい読みは？",
+        "a": "さいなむ",
+        "w": [
+          "いどむ",
+          "うらむ",
+          "ねたむ"
+        ],
+        "e": "苛む（さいな-む）＝責め苦しめる。"
+      },
+      {
+        "q": "<span class=\"target\">嘶く</span>は、馬が「いななく」ことである。",
+        "ox": true,
+        "e": "嘶く（いなな-く）。"
+      },
+      {
+        "q": "「<span class=\"target\">嘲る</span>」の正しい読みは？",
+        "a": "あざける",
+        "w": [
+          "ののしる",
+          "いつわる",
+          "あなどる"
+        ],
+        "e": "嘲る（あざけ-る）。"
+      },
+      {
+        "q": "「<span class=\"target\">寿ぐ</span>（言祝ぐ）」の正しい読みは？",
+        "a": "ことほぐ",
+        "w": [
+          "あおぐ",
+          "つなぐ",
+          "いそぐ"
+        ],
+        "e": "寿ぐ／言祝ぐ（ことほ-ぐ）＝祝いの言葉を述べる。"
+      },
+      {
+        "q": "<span class=\"target\">縋る</span>は、たよりにしてつかまる「すがる」である。",
+        "ox": true,
+        "e": "縋る（すが-る）。"
+      },
+      {
+        "q": "「<span class=\"target\">弄ぶ</span>」の正しい読みは？",
+        "a": "もてあそぶ",
+        "w": [
+          "たくらむ",
+          "あなどる",
+          "いつわる"
+        ],
+        "e": "弄ぶ（もてあそ-ぶ）。"
+      },
+      {
+        "q": "「<span class=\"target\">啜る</span>」の正しい読みは？",
+        "a": "すする",
+        "w": [
+          "むさぼる",
+          "したたる",
+          "こぼす"
+        ],
+        "e": "啜る（すす-る）。"
+      },
+      {
+        "q": "<span class=\"target\">嗜む</span>は、好んで親しむ・心得がある意の「たしなむ」である。",
+        "ox": true,
+        "e": "嗜む（たしな-む）。"
+      },
+      {
+        "q": "「<span class=\"target\">嘯く</span>」の正しい読みは？",
+        "a": "うそぶく",
+        "w": [
+          "つぶやく",
+          "ささやく",
+          "どなる"
+        ],
+        "e": "嘯く（うそぶ-く）＝とぼける・大きなことを言う。"
+      },
+      {
+        "q": "「<span class=\"target\">諫める</span>」の正しい読みは？",
+        "a": "いさめる",
+        "w": [
+          "なだめる",
+          "とがめる",
+          "せめる"
+        ],
+        "e": "諫める（いさ-める）＝目上の人に忠告する。"
+      },
+      {
+        "q": "<span class=\"target\">訛る</span>は、発音がなまる「なまる」である。",
+        "ox": true,
+        "e": "訛る（なま-る）。"
+      },
+      {
+        "q": "「<span class=\"target\">拵える</span>」の正しい読みは？",
+        "a": "こしらえる",
+        "w": [
+          "たくわえる",
+          "ととのえる",
+          "そなえる"
+        ],
+        "e": "拵える（こしら-える）＝作る・用意する。"
+      },
+      {
+        "q": "「<span class=\"target\">設える</span>」の正しい読みは？",
+        "a": "しつらえる",
+        "w": [
+          "たくわえる",
+          "こしらえる",
+          "あつらえる"
+        ],
+        "e": "設える（しつら-える）＝部屋などを整え備える。"
+      },
+      {
+        "q": "手紙や文章を書く意の「認める」は「<span class=\"target\">したためる</span>」と読む。",
+        "ox": true,
+        "e": "認める（したた-める）。「みとめる」とは別の訓。"
+      },
+      {
+        "q": "「<span class=\"target\">軋む</span>」の正しい読みは？",
+        "a": "きしむ",
+        "w": [
+          "ゆがむ",
+          "たわむ",
+          "ひずむ"
+        ],
+        "e": "軋む（きし-む）。"
+      },
+      {
+        "q": "「<span class=\"target\">燻す</span>」の正しい読みは？",
+        "a": "いぶす",
+        "w": [
+          "こがす",
+          "ただす",
+          "ふかす"
+        ],
+        "e": "燻す（いぶ-す）。「燻る」は「くすぶる」。"
+      },
+      {
+        "q": "<span class=\"target\">蟠る</span>は、心にしこりが残る「わだかまる」である。",
+        "ox": true,
+        "e": "蟠る（わだかま-る）。"
+      },
+      {
+        "q": "「<span class=\"target\">蠢く</span>」の正しい読みは？",
+        "a": "うごめく",
+        "w": [
+          "ひしめく",
+          "うずまく",
+          "はためく"
+        ],
+        "e": "蠢く（うごめ-く）＝虫などがもぞもぞ動く。"
+      },
+      {
+        "q": "「<span class=\"target\">跪く</span>」の正しい読みは？",
+        "a": "ひざまずく",
+        "w": [
+          "つまずく",
+          "うずくまる",
+          "かしずく"
+        ],
+        "e": "跪く（ひざまず-く）。"
+      },
+      {
+        "q": "<span class=\"target\">蹲る</span>は、体を丸めてしゃがむ「うずくまる」である。",
+        "ox": true,
+        "e": "蹲る（うずくま-る）。"
+      },
+      {
+        "q": "「<span class=\"target\">屯する</span>」の正しい読みは？",
+        "a": "たむろする",
+        "w": [
+          "てっする",
+          "ふんする",
+          "りっする"
+        ],
+        "e": "屯する（たむろ-する）＝人が群れ集まる。"
+      },
+      {
+        "q": "「<span class=\"target\">嵩む</span>」の正しい読みは？",
+        "a": "かさむ",
+        "w": [
+          "はずむ",
+          "ひそむ",
+          "たるむ"
+        ],
+        "e": "嵩む（かさ-む）＝数量・費用が増える。"
+      },
+      {
+        "q": "<span class=\"target\">拗ねる</span>は、すなおでなくひがむ「すねる」である。",
+        "ox": true,
+        "e": "拗ねる（す-ねる）。"
+      },
+      {
+        "q": "「<span class=\"target\">強ち</span>」の正しい読みは？",
+        "a": "あながち",
+        "w": [
+          "まちまち",
+          "たちまち",
+          "あらかた"
+        ],
+        "e": "強ち（あなが-ち）＝（打消を伴い）必ずしも。"
+      },
+      {
+        "q": "「<span class=\"target\">些か</span>」の正しい読みは？",
+        "a": "いささか",
+        "w": [
+          "わずか",
+          "はるか",
+          "にわか"
+        ],
+        "e": "些か（いささ-か）＝ほんの少し。"
+      },
+      {
+        "q": "<span class=\"target\">専ら</span>は、そのことばかりする「もっぱら」である。",
+        "ox": true,
+        "e": "専ら（もっぱ-ら）。"
+      }
+    ]
+  },
+  "busyu": {
+    "name": "部首・画数・筆順",
+    "ji": "筆",
+    "desc": "裁＝衣部？ 中の筆順は？など",
+    "pool": [
+      {
+        "q": "「<span class=\"target\">鼻</span>」の部首は？",
+        "a": "鼻",
+        "w": [
+          "田",
+          "目",
+          "廾"
+        ],
+        "e": "「鼻」は一字で部首。「鼻」を部首とする漢字は少ない。"
+      },
+      {
+        "q": "「<span class=\"target\">裁</span>」の部首は？",
+        "a": "衣",
+        "w": [
+          "戈",
+          "十",
+          "土"
+        ],
+        "e": "「裁」の部首は衣（ころも）。"
+      },
+      {
+        "q": "「黒」の部首は「黒」（くろ）である。",
+        "ox": true,
+        "e": "「黒」「黙」などは黒が部首。"
+      },
+      {
+        "q": "「<span class=\"target\">興</span>」の部首は？",
+        "a": "臼",
+        "w": [
+          "八",
+          "一",
+          "寸"
+        ],
+        "e": "「興」の部首は臼（うす）。"
+      },
+      {
+        "q": "「<span class=\"target\">表</span>」の部首は？",
+        "a": "衣",
+        "w": [
+          "一",
+          "土",
+          "二"
+        ],
+        "e": "「表」の部首は衣（ころも）。"
+      },
+      {
+        "q": "「街」の部首は「行」（ぎょうがまえ・ゆきがまえ）である。",
+        "ox": true,
+        "e": "「街」「衝」「衛」などの部首は行。"
+      },
+      {
+        "q": "「<span class=\"target\">疑</span>」の部首は？",
+        "a": "疋",
+        "w": [
+          "匕",
+          "矢",
+          "子"
+        ],
+        "e": "「疑」の部首は疋（ひき）。"
+      },
+      {
+        "q": "「<span class=\"target\">望</span>」の部首は？",
+        "a": "月",
+        "w": [
+          "王",
+          "亡",
+          "一"
+        ],
+        "e": "「望」の部首は月（つき）。"
+      },
+      {
+        "q": "「哀」の部首は「口」である。",
+        "ox": true,
+        "e": "「哀」の部首は口（くち）。"
+      },
+      {
+        "q": "「受」「取」に共通する部首は？",
+        "a": "又",
+        "w": [
+          "爪",
+          "耳",
+          "寸"
+        ],
+        "e": "又（また）。受・取・友・反などに共通。"
+      },
+      {
+        "q": "「<span class=\"target\">慶</span>」の部首は？",
+        "a": "心",
+        "w": [
+          "广",
+          "鹿",
+          "大"
+        ],
+        "e": "「慶」の部首は心（こころ）。"
+      },
+      {
+        "q": "「闘」の部首は「門」（もんがまえ・たたかいがまえ）である。",
+        "ox": true,
+        "e": "「闘」の部首は門。"
+      },
+      {
+        "q": "「<span class=\"target\">協</span>」の部首は？",
+        "a": "十",
+        "w": [
+          "力",
+          "口",
+          "一"
+        ],
+        "e": "「協」の部首は十（じゅう）。力ではない点に注意。"
+      },
+      {
+        "q": "「<span class=\"target\">凹</span>」の総画数は？",
+        "a": "5画",
+        "w": [
+          "4画",
+          "6画",
+          "7画"
+        ],
+        "e": "「凹」は5画。"
+      },
+      {
+        "q": "「区」の総画数は4画である。",
+        "ox": true,
+        "e": "「区」は4画（匚＝2画＋㐅＝2画）。"
+      },
+      {
+        "q": "「<span class=\"target\">弓</span>」の総画数は？",
+        "a": "3画",
+        "w": [
+          "2画",
+          "4画",
+          "5画"
+        ],
+        "e": "「弓」は3画。"
+      },
+      {
+        "q": "「<span class=\"target\">与</span>」の総画数は？",
+        "a": "3画",
+        "w": [
+          "4画",
+          "5画",
+          "2画"
+        ],
+        "e": "「与」は3画。"
+      },
+      {
+        "q": "「断」の部首は「斤」（おのづくり）である。",
+        "ox": true,
+        "e": "「断」「新」「斬」などは斤が部首。"
+      },
+      {
+        "q": "「<span class=\"target\">武</span>」の部首は？",
+        "a": "止",
+        "w": [
+          "弋",
+          "戈",
+          "一"
+        ],
+        "e": "「武」の部首は止（とめる・とめへん）。"
+      },
+      {
+        "q": "「<span class=\"target\">率</span>」の部首は？",
+        "a": "玄",
+        "w": [
+          "亠",
+          "十",
+          "氵"
+        ],
+        "e": "「率」の部首は玄（げん）。"
+      },
+      {
+        "q": "「田」のように囲む形の漢字は、下の横画（口を閉じる線）を最後に書く。",
+        "ox": true,
+        "e": "「田」「国」など、囲みを閉じる線は最後に書くのが原則。"
+      },
+      {
+        "q": "「<span class=\"target\">及</span>」の総画数は？",
+        "a": "3画",
+        "w": [
+          "2画",
+          "4画",
+          "5画"
+        ],
+        "e": "「及」は3画。"
+      },
+      {
+        "q": "「中」を書くとき、つらぬく縦の棒は何画目に書く？",
+        "a": "最後（4画目）",
+        "w": [
+          "1画目",
+          "2画目",
+          "3画目"
+        ],
+        "e": "「中」は囲み（口）を書いてから、縦棒を最後に通す。"
+      },
+      {
+        "q": "漢字は原則として「上から下へ」「左から右へ」書き進める。",
+        "ox": true,
+        "e": "筆順の二大原則。"
+      },
+      {
+        "q": "「<span class=\"target\">衷</span>」の部首は？",
+        "a": "衣",
+        "w": [
+          "口",
+          "一",
+          "中"
+        ],
+        "e": "「衷」の部首は衣（ころも）。"
+      },
+      {
+        "q": "「<span class=\"target\">賊</span>」の部首は？",
+        "a": "貝",
+        "w": [
+          "戈",
+          "十",
+          "一"
+        ],
+        "e": "「賊」の部首は貝（かい・かいへん）。"
+      }
+    ]
+  }
 };
-let currentGenre=null,questions=[],qIndex=0,score=0,correctCount=0,wrongCount=0;
-let timeLeft=120,timer=null,answered=false,wrongAnswers=[],playerName='';
-let currentRankingGenre=null;
-let curChoices=[],curCorrectIdx=-1;
-let typingTimeout=null,displayedText='',answerPhase=false;
-const TYPING_SPEED=90; // 問題文の表示スピード（1文字あたりミリ秒。大きいほど遅い）
-function escapeHtml(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
-function stripHtml(s){return String(s).replace(/<[^>]*>/g,'');}
-function shuffle(arr){const a=[...arr];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
-function showScreen(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.getElementById(id).classList.add('active');window.scrollTo(0,0);}
-let toastTimer=null;
-function showToast(msg,type='',d=4500){const t=document.getElementById('toast');t.textContent=msg;t.className='show'+(type?' '+type:'');clearTimeout(toastTimer);toastTimer=setTimeout(()=>hideToast(),d);}
-function hideToast(){clearTimeout(toastTimer);const t=document.getElementById('toast');if(t)t.className='';}
+
+const ORDER = ["jukuji","kokuji","yoji4","kotowaza","kunyomi","busyu"];
+
+/* ---------- 状態 ---------- */
+let curGenre=null, questions=[], idx=0, score=0, correctCount=0;
+let timeLeft=120, timerId=null;
+let wrongList=[]; // {q, target, t, yours, correct, e}
+let reviewIdx=0, lastResult=null;
+const TOTAL_Q=10, START_TIME=120, MAX_TIME=999;
+const STORAGE_KEY='kanken1_ni_ranking_v1';
+
+/* ---------- 初期化 ---------- */
 function buildGenreCards(){
-  const grid=document.getElementById('genres-grid');
-  grid.innerHTML=GENRES.map(g=>`<div class="genre-card" onclick="selectGenre('${g.id}')"><div class="genre-accent" style="background:${g.color};"></div><span class="genre-icon">${g.icon}</span><div class="genre-name">${g.name}</div><div class="genre-desc">${g.desc}</div><div class="genre-count">全${DB[g.id].length}問収録 ／ 10問ランダム出題</div><span class="genre-start">▶ START</span></div>`).join('');
-}
-function selectGenre(id){
-  currentGenre=GENRES.find(g=>g.id===id);
-  document.getElementById('intro-icon').textContent=currentGenre.icon;
-  document.getElementById('intro-name').textContent=currentGenre.name;
-  document.getElementById('intro-desc').textContent=currentGenre.desc;
-  if(window.TomyStamp){const saved=TomyStamp.getPlayer();const inp=document.getElementById('name-input');if(saved&&!inp.value)inp.value=saved;}
-  showScreen('screen-intro');
-}
-function startGame(){
-  playerName=document.getElementById('name-input').value.trim()||'ゲスト';
-  if(window.TomyStamp&&playerName!=='ゲスト')TomyStamp.setPlayer(playerName);
-  questions=shuffle(DB[currentGenre.id]).slice(0,10);
-  qIndex=0;score=0;correctCount=0;wrongCount=0;wrongAnswers=[];
-  showScreen('screen-quiz');showQuestion();startTimer();
-}
-function retryGame(){showScreen('screen-intro');}
-function startTimer(){clearInterval(timer);timeLeft=120;updateTimerDisplay();timer=setInterval(()=>{timeLeft--;updateTimerDisplay();if(timeLeft<=0){clearInterval(timer);endGame();}},1000);}
-function updateTimerDisplay(){const el=document.getElementById('quiz-timer');el.textContent=timeLeft;el.className='quiz-timer'+(timeLeft<=10?' danger':'');}
-function showQuestion(){
-  const q=questions[qIndex];answered=false;answerPhase=false;
-  document.getElementById('quiz-qnum').textContent=`Q${qIndex+1} / 10`;
-  document.getElementById('quiz-progress-fill').style.width=`${(qIndex/10)*100}%`;
-  document.getElementById('quiz-score').textContent=`${score} pt`;
-  document.getElementById('result-overlay').classList.remove('show');
-
-  const badge=document.getElementById('quiz-type-badge');
-  if(q.type==='4'){badge.textContent='4択';badge.className='quiz-type-badge type-4';}
-  else{badge.textContent='○×';badge.className='quiz-type-badge type-ox';}
-
-  // 選択肢は隠す・バザーボタンを出す
-  const choices=document.getElementById('quiz-choices');
-  choices.style.display='none';choices.innerHTML='';choices.className=(q.type==='4'?'choices':'');
-  const buzzer=document.getElementById('buzzer-btn');
-  buzzer.style.display='block';buzzer.disabled=false;
-
-  // 問題文タイプライター開始
-  const el=document.getElementById('quiz-q');
-  el.style.transition='none';el.style.visibility='visible';el.style.opacity='1';
-  typeQuestion(q.q,el);
+  const grid=document.getElementById('genreGrid');
+  grid.innerHTML='';
+  ORDER.forEach(key=>{
+    const g=QUIZ[key];
+    const div=document.createElement('div');
+    div.className='gcard';
+    div.onclick=()=>openModal(key);
+    div.innerHTML=`<div class="ji">${g.ji}</div><div class="nm">${g.name}</div><div class="ct">全${g.pool.length}問から出題</div>`;
+    grid.appendChild(div);
+  });
 }
 
-// タイプライター表示（問題文はHTMLを含むため、表示中はプレーンテキストを流し、完了時にスタイル付きで表示）
-function typeQuestion(html,el){
-  if(typingTimeout)clearTimeout(typingTimeout);
-  const plain=stripHtml(html);
-  displayedText='';let i=0;
-  (function next(){
-    if(i<plain.length){
-      displayedText+=plain[i++];
-      el.innerHTML=escapeHtml(displayedText)+'<span class="cursor-blink"></span>';
-      typingTimeout=setTimeout(next,TYPING_SPEED);
-    }else{
-      el.innerHTML=html;
-    }
-  })();
+/* ---------- モーダル（最後の確認） ---------- */
+let pendingGenre=null;
+function openModal(key){
+  pendingGenre=key;
+  const g=QUIZ[key];
+  document.getElementById('modalJi').textContent=g.ji;
+  document.getElementById('modalName').textContent=g.name;
+  document.getElementById('modalDesc').textContent=g.desc;
+  document.getElementById('modalBg').classList.add('show');
+}
+function closeModal(){document.getElementById('modalBg').classList.remove('show');pendingGenre=null;}
+function confirmStart(){
+  const key=pendingGenre;
+  document.getElementById('modalBg').classList.remove('show');
+  if(key) startGame(key);
+}
+function randomGenre(){openModal(ORDER[Math.floor(Math.random()*ORDER.length)]);}
+
+/* ---------- ゲーム開始 ---------- */
+function shuffle(arr){
+  const a=arr.slice();
+  for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}
+  return a;
+}
+function startGame(key){
+  curGenre=key;
+  const pool=QUIZ[key].pool;
+  questions=shuffle(pool).slice(0,Math.min(TOTAL_Q,pool.length));
+  idx=0;score=0;correctCount=0;wrongList=[];timeLeft=START_TIME;
+  document.getElementById('hudScore').textContent='0';
+  showScreen('quiz');
+  startTimer();
+  renderQuestion();
 }
 
-// 「回答する！」押下 → タイプライター停止 → 問題文フェードアウト → 選択肢表示
-function onBuzzer(){
-  if(answerPhase)return;answerPhase=true;
-  if(typingTimeout)clearTimeout(typingTimeout);
-  const el=document.getElementById('quiz-q');
-  el.style.transition='opacity 0.2s ease';
-  el.style.opacity='0';el.style.visibility='hidden';
-  document.getElementById('buzzer-btn').style.display='none';
-  renderChoices(questions[qIndex]);
+/* ---------- タイマー ---------- */
+function startTimer(){
+  clearInterval(timerId);
+  updateTimeUI();
+  timerId=setInterval(()=>{
+    timeLeft--;
+    if(timeLeft<=0){timeLeft=0;updateTimeUI();endGame();return;}
+    updateTimeUI();
+  },1000);
+}
+function updateTimeUI(){
+  document.getElementById('hudTime').textContent=timeLeft;
+  const pct=Math.max(0,Math.min(100,(timeLeft/START_TIME)*100));
+  document.getElementById('timeFill').style.width=pct+'%';
+  const pill=document.getElementById('timePill');
+  if(timeLeft<=15)pill.classList.add('warn');else pill.classList.remove('warn');
 }
 
-function renderChoices(q){
-  const wrap=document.getElementById('quiz-choices');
-  wrap.style.display='block';
-  if(q.type==='4'){
-    wrap.className='choices';
-    // 表示時に選択肢の順番をシャッフルして正解位置の偏りを防ぐ
-    const pairs=q.c.map((text,i)=>({text,correct:i===q.a}));
-    curChoices=shuffle(pairs);
-    curCorrectIdx=curChoices.findIndex(p=>p.correct);
-    const lb=['A','B','C','D'];
-    wrap.innerHTML=curChoices.map((p,i)=>`<button class="choice-btn" onclick="answer4(${i})"><span class="choice-label">${lb[i]}</span>${escapeHtml(p.text)}</button>`).join('');
+/* ---------- 出題描画 ---------- */
+function renderQuestion(){
+  const q=questions[idx];
+  document.getElementById('qTag').textContent=QUIZ[curGenre].name;
+  const isOX=(typeof q.ox==='boolean');
+  document.getElementById('qType').textContent=isOX?'○×問題':'4択問題';
+  document.getElementById('progress').textContent=`第 ${idx+1} 問 / ${questions.length}`;
+
+  // 問題文（targetがあれば大きく強調）
+  let html=q.q;
+  const sub=document.getElementById('qSub');
+  if(q.target){
+    html=q.q+`<br><span class="target">「${q.target}」</span>`;
+    sub.textContent='';
+  }else{sub.textContent='';}
+  document.getElementById('qText').innerHTML=html;
+
+  const box=document.getElementById('choices');
+  box.innerHTML='';box.className='choices';
+
+  if(isOX){
+    box.classList.add('ox');
+    [['◯',true],['✕',false]].forEach(([mark,val])=>{
+      const b=document.createElement('button');
+      b.className='choice ox-mark';b.textContent=mark;
+      b.onclick=()=>pick(b,val===q.ox,q);
+      box.appendChild(b);
+    });
   }else{
-    wrap.className='';
-    wrap.innerHTML=`<div class="ox-choices"><button class="ox-btn" onclick="answerOX(true)">⭕<span>正しい</span></button><button class="ox-btn" onclick="answerOX(false)">❌<span>誤り</span></button></div>`;
+    // {text, correct} を作りシャッフル（正解位置の偏り防止）
+    let opts=[{text:q.a,correct:true}].concat(q.w.map(w=>({text:w,correct:false})));
+    opts=shuffle(opts);
+    opts.forEach(o=>{
+      const b=document.createElement('button');
+      b.className='choice';b.textContent=o.text;
+      b.onclick=()=>pick(b,o.correct,q);
+      box.appendChild(b);
+    });
   }
 }
 
-// 選択後：問題文を全文（スタイル付きHTML）でフェードインして再表示
-function revealQuestion(html){
-  const el=document.getElementById('quiz-q');
-  el.innerHTML=html;
-  el.style.transition='opacity 0.3s ease';
-  el.style.visibility='visible';
-  el.style.opacity='1';
-}
-function answer4(idx){
-  if(answered)return;answered=true;
-  const q=questions[qIndex];
-  const btns=document.querySelectorAll('.choice-btn');
-  btns.forEach(b=>b.disabled=true);
-  btns[curCorrectIdx].classList.add('correct');
-  if(idx!==curCorrectIdx)btns[idx].classList.add('wrong');
-  revealQuestion(q.q);
-  const isCorrect=idx===curCorrectIdx;
-  const correctAns=curChoices[curCorrectIdx].text;
-  const userAns=curChoices[idx].text;
-  setTimeout(()=>showResult(isCorrect,correctAns,userAns,q.q,q.m),600);
-}
-function answerOX(val){
-  if(answered)return;answered=true;
-  const q=questions[qIndex];
-  const btns=document.querySelectorAll('.ox-btn');
-  btns.forEach(b=>b.disabled=true);
-  btns[q.a?0:1].classList.add('correct');
-  if(val!==q.a)btns[val?0:1].classList.add('wrong');
-  revealQuestion(q.q);
-  const userAns=val?'○（正しい）':'×（誤り）';
-  setTimeout(()=>showResult(val===q.a,q.a?'○（正しい）':'×（誤り）',userAns,q.q,q.m),600);
-}
-function showResult(isCorrect,correctAns,userAns,qHtml,mean){
-  if(isCorrect){score+=10;correctCount++;timeLeft=Math.min(timeLeft+5,999);}
-  else{wrongCount++;timeLeft=Math.max(timeLeft-5,0);wrongAnswers.push({q:qHtml,a:correctAns,m:mean||''});}
-  updateTimerDisplay();
-  document.getElementById('quiz-score').textContent=`${score} pt`;
-  const box=document.getElementById('result-box-ov');
-  box.className='result-box-ov '+(isCorrect?'correct':'incorrect');
-  document.getElementById('result-emoji').textContent=isCorrect?'✅':'❌';
-  document.getElementById('result-label-ov').textContent=isCorrect?'正解！':'不正解...';
-  document.getElementById('result-ov-q').innerHTML=qHtml;
-  document.getElementById('result-ov-a').textContent=correctAns;
+/* ---------- 解答処理 ---------- */
+function pick(btn,isCorrect,q){
+  const buttons=document.querySelectorAll('#choices .choice');
+  buttons.forEach(b=>b.disabled=true);
+  const isOX=(typeof q.ox==='boolean');
+  const correctText=isOX?(q.ox?'◯':'✕'):q.a;
+
   if(isCorrect){
-    document.getElementById('result-ov-fb').innerHTML='<span class="hl plus">+10点</span>　<span class="hl plus">残り時間 +5秒！</span>';
-    showToast('✅ 正解！ +10点 +5秒','ok');
+    score+=10;correctCount++;
+    timeLeft=Math.min(MAX_TIME,timeLeft+5);
+    btn.classList.add('correct');
+    document.getElementById('hudScore').textContent=score;
+    updateTimeUI();
+    showToast(true,'正解！','+10点　時間 +5秒　⏱');
   }else{
-    document.getElementById('result-ov-fb').innerHTML=`あなたの回答：「${escapeHtml(userAns)}」　<span class="hl minus">（−5秒）</span>`;
-    showToast('❌ 不正解 −5秒','ng');
+    timeLeft=Math.max(0,timeLeft-5);
+    btn.classList.add('wrong');
+    // 正解ボタンを光らせる
+    buttons.forEach(b=>{
+      if(isOX){
+        if((b.textContent==='◯')===q.ox)b.classList.add('correct');
+      }else{
+        if(b.textContent===q.a)b.classList.add('correct');
+      }
+    });
+    updateTimeUI();
+    showToast(false,'❌ 不正解',`正解は「${correctText}」（時間 −5秒）`);
+    // 間違いリストへ
+    wrongList.push({
+      qhtml: q.target?`${q.q}<br><span class="target">「${q.target}」</span>`:q.q,
+      yours: isOX?(q.ox?'✕':'◯'):btn.textContent, // 自分が選んだ
+      correct: correctText,
+      e:q.e||''
+    });
   }
-  document.getElementById('result-ov-mean').innerHTML=mean?('💡 '+escapeHtml(mean)):'';
-  document.getElementById('result-overlay').classList.add('show');
+  // 次へ
+  setTimeout(()=>{
+    hideToast();
+    idx++;
+    if(idx>=questions.length || timeLeft<=0){endGame();}
+    else renderQuestion();
+  },1150);
 }
-function nextQuestion(){document.getElementById('result-overlay').classList.remove('show');hideToast();qIndex++;if(qIndex>=10){clearInterval(timer);endGame();}else{showQuestion();}}
+
+/* ---------- トースト ---------- */
+let toastTimer=null;
+function showToast(ok,big,small){
+  const t=document.getElementById('toast');
+  t.className='toast '+(ok?'ok':'ng');
+  document.getElementById('toastBig').textContent=big;
+  document.getElementById('toastSmall').textContent=small;
+  // reflow→show
+  void t.offsetWidth;
+  t.classList.add('show');
+}
+function hideToast(){
+  const t=document.getElementById('toast');
+  t.classList.remove('show');
+}
+
+/* ---------- 終了・結果 ---------- */
 function endGame(){
-  clearInterval(timer);
-  if(typingTimeout)clearTimeout(typingTimeout);
-  document.getElementById('result-overlay').classList.remove('show');
-  const bonus=Math.max(timeLeft,0),total=score+bonus;
-  const medal=correctCount>=9?'🥇':correctCount>=7?'🥈':correctCount>=5?'🥉':'😅';
-  document.getElementById('result-genre').textContent=currentGenre.icon+' '+currentGenre.name;
-  document.getElementById('result-score').textContent=total;
-  document.getElementById('result-medal').textContent=medal;
-  document.getElementById('result-correct').textContent=correctCount;
-  document.getElementById('result-wrong').textContent=wrongCount;
-  document.getElementById('result-bonus').textContent='+'+bonus;
-  const ws=document.getElementById('wrong-section');
-  if(wrongAnswers.length>0){ws.innerHTML=`<div class="wrong-label">// ❌ 間違えた問題（${wrongAnswers.length}問）</div>`+wrongAnswers.map((w,i)=>`<div class="wrong-item"><div class="wrong-item-num">問${i+1}</div><div class="wrong-item-q">${w.q}</div><div class="wrong-item-ans"><span class="wrong-item-ans-label">正解</span><span class="wrong-item-ans-text">${w.a}</span></div>${w.m?`<div class="wrong-item-mean">💡 ${w.m}</div>`:''}</div>`).join('');}
-  else{ws.innerHTML='<div style="text-align:center;padding:20px;font-family:\'Share Tech Mono\',monospace;font-size:12px;color:var(--gold3);">🎉 全問正解！おみごと！</div>';}
-  saveRanking(currentGenre.id,playerName,total,correctCount);
-  if(window.TomyStamp&&playerName!=='ゲスト'){TomyStamp.send('kanken1-quiz',currentGenre.name,correctCount).then(r=>{if(r.ok)showToast('⭐ スタンプ獲得！ランキングに反映されます');});}
-  showScreen('screen-result');
+  clearInterval(timerId);
+  hideToast();
+  const base=correctCount*10;
+  const bonus=timeLeft; // 残り秒数=ボーナス点
+  const total=base+bonus;
+  lastResult={genre:curGenre,total,base,bonus,correct:correctCount,saved:false};
+
+  document.getElementById('resGenre').textContent='【'+QUIZ[curGenre].name+'】';
+  document.getElementById('resTotal').textContent=total;
+  document.getElementById('resCorrect').textContent=correctCount;
+  document.getElementById('resBase').textContent=base;
+  document.getElementById('resBonus').textContent=bonus;
+
+  // ランク評価
+  const badge=document.getElementById('resBadge');
+  let label,bg,col;
+  if(correctCount>=10){label='皆伝（全問正解）';bg='linear-gradient(135deg,#d4af37,#b8932a)';col='#231a07';}
+  else if(correctCount>=8){label='免許皆伝に近し';bg='linear-gradient(135deg,#b5292f,#8e1e23)';col='#fff';}
+  else if(correctCount>=6){label='精進あるのみ';bg='rgba(212,175,55,.18)';col='#e6c875';}
+  else if(correctCount>=4){label='修行の途上';bg='rgba(255,255,255,.1)';col='#cdbf9e';}
+  else{label='初学の章';bg='rgba(255,255,255,.06)';col='#cdbf9e';}
+  badge.textContent=label;badge.style.background=bg;badge.style.color=col;
+
+  // 復習ボタンの表示
+  document.getElementById('reviewBtn').style.display=wrongList.length?'block':'none';
+  document.getElementById('saveBtn').disabled=false;
+  document.getElementById('saveBtn').textContent='📥 ランキングに登録';
+
+  showScreen('result');
 }
-const LS_KEY='kanken1_quiz_ranking';
-function saveRanking(gId,name,sc,correct){const data=JSON.parse(localStorage.getItem(LS_KEY)||'{}');if(!data[gId])data[gId]=[];data[gId].push({name,score:sc,correct,date:new Date().toLocaleDateString('ja-JP')});data[gId].sort((a,b)=>b.score-a.score);data[gId]=data[gId].slice(0,20);localStorage.setItem(LS_KEY,JSON.stringify(data));}
-function showRanking(){const tabs=document.getElementById('ranking-tabs');tabs.innerHTML=GENRES.map(g=>`<button class="ranking-tab" onclick="switchRankingTab('${g.id}',this)">${g.icon} ${g.name}</button>`).join('');showScreen('screen-ranking');switchRankingTab(GENRES[0].id,tabs.querySelector('.ranking-tab'));}
-function switchRankingTab(id,btn){document.querySelectorAll('.ranking-tab').forEach(t=>t.classList.remove('active'));btn.classList.add('active');currentRankingGenre=id;renderRanking(id);}
-function renderRanking(id){const data=JSON.parse(localStorage.getItem(LS_KEY)||'{}');const rows=data[id]||[];const list=document.getElementById('ranking-list');if(!rows.length){list.innerHTML='<div class="ranking-empty">// まだ記録がありません</div>';return;}list.innerHTML=rows.map((r,i)=>{const pos=i+1,pc=pos===1?'gold':pos===2?'silver':pos===3?'bronze':'';const rc=pos===1?'top1':pos===2?'top2':pos===3?'top3':'';return `<div class="ranking-row ${rc}"><span class="ranking-pos ${pc}">${pos}</span><span class="ranking-name">${r.name}</span><span style="font-family:'Share Tech Mono',monospace;font-size:11px;color:var(--text3);">${r.correct}/10</span><span class="ranking-score">${r.score}</span><span class="ranking-date">${r.date}</span></div>`;}).join('');}
-function deleteRanking(){if(!currentRankingGenre)return;if(!confirm(`「${GENRES.find(g=>g.id===currentRankingGenre)?.name}」の記録を削除しますか？`))return;const data=JSON.parse(localStorage.getItem(LS_KEY)||'{}');delete data[currentRankingGenre];localStorage.setItem(LS_KEY,JSON.stringify(data));renderRanking(currentRankingGenre);}
+
+/* ---------- スコア保存 ---------- */
+function loadRanking(){
+  try{return JSON.parse(localStorage.getItem(STORAGE_KEY))||{};}
+  catch(e){return {};}
+}
+function saveScore(){
+  if(!lastResult||lastResult.saved)return;
+  let name=document.getElementById('playerName').value.trim();
+  if(!name)name='名無しの達人';
+  const data=loadRanking();
+  if(!data[lastResult.genre])data[lastResult.genre]=[];
+  const d=new Date();
+  const dateStr=`${d.getMonth()+1}/${d.getDate()}`;
+  data[lastResult.genre].push({name,score:lastResult.total,correct:lastResult.correct,date:dateStr});
+  data[lastResult.genre].sort((a,b)=>b.score-a.score);
+  data[lastResult.genre]=data[lastResult.genre].slice(0,50);
+  try{localStorage.setItem(STORAGE_KEY,JSON.stringify(data));}catch(e){}
+  lastResult.saved=true;
+  document.getElementById('saveBtn').textContent='✅ 登録しました';
+  document.getElementById('saveBtn').disabled=true;
+  setTimeout(()=>showRanking(lastResult.genre),500);
+}
+
+/* ---------- 復習 ---------- */
+function showReview(){
+  reviewIdx=0;
+  renderReview();
+  showScreen('review');
+}
+function renderReview(){
+  const card=document.getElementById('reviewCard');
+  if(wrongList.length===0){
+    card.innerHTML=`<div class="perfect-msg">🎉<br>間違いはありませんでした！<br>お見事です。</div>`;
+    return;
+  }
+  const w=wrongList[reviewIdx];
+  card.innerHTML=`
+    <div class="review-head">
+      <span class="ttl">📖 間違えた問題</span>
+      <span class="count">${reviewIdx+1} / ${wrongList.length}</span>
+    </div>
+    <div class="review-q">${w.qhtml}</div>
+    <div class="ans-block">
+      <div class="ans-line yours"><span class="lab">あなたの解答</span><span class="val">${w.yours}</span></div>
+      <div class="ans-line right"><span class="lab">正解</span><span class="val">${w.correct}</span></div>
+    </div>
+    ${w.e?`<div class="explain">💡 ${w.e}</div>`:''}
+    <div class="review-nav">
+      <button class="btn btn-ghost" onclick="prevReview()" ${reviewIdx===0?'disabled style=opacity:.4':''}>‹ 前へ</button>
+      <button class="btn btn-ghost" onclick="nextReview()" ${reviewIdx===wrongList.length-1?'disabled style=opacity:.4':''}>次へ ›</button>
+    </div>`;
+}
+function prevReview(){if(reviewIdx>0){reviewIdx--;renderReview();}}
+function nextReview(){if(reviewIdx<wrongList.length-1){reviewIdx++;renderReview();}}
+function backToResult(){showScreen('result');}
+
+/* ---------- ランキング画面 ---------- */
+let curRankTab=null;
+function showRanking(focusGenre){
+  buildRankTabs();
+  curRankTab=focusGenre||ORDER[0];
+  renderRankList();
+  showScreen('ranking');
+}
+function buildRankTabs(){
+  const tabs=document.getElementById('rankTabs');
+  tabs.innerHTML='';
+  ORDER.forEach(key=>{
+    const b=document.createElement('button');
+    b.className='tab';b.textContent=QUIZ[key].name;
+    b.dataset.key=key;
+    b.onclick=()=>{curRankTab=key;renderRankList();};
+    tabs.appendChild(b);
+  });
+}
+function renderRankList(){
+  document.querySelectorAll('#rankTabs .tab').forEach(t=>{
+    t.classList.toggle('active',t.dataset.key===curRankTab);
+  });
+  const data=loadRanking();
+  const list=document.getElementById('rankList');
+  const arr=(data[curRankTab]||[]).slice(0,10);
+  if(arr.length===0){
+    list.innerHTML=`<div class="rank-empty">まだ記録がありません。<br>「${QUIZ[curRankTab].name}」に挑戦してみましょう！</div>`;
+    return;
+  }
+  list.innerHTML='';
+  arr.forEach((r,i)=>{
+    const li=document.createElement('li');
+    if(i<3)li.classList.add('top'+(i+1));
+    const medal=['🥇','🥈','🥉'][i]||(i+1);
+    li.innerHTML=`<span class="pos">${medal}</span>
+      <span class="nm">${escapeHtml(r.name)}</span>
+      <span class="dt">${r.date||''}</span>
+      <span class="sc">${r.score}点</span>`;
+    list.appendChild(li);
+  });
+}
+function clearRanking(){
+  if(confirm('この端末に保存されたランキングをすべて消去します。よろしいですか？')){
+    try{localStorage.removeItem(STORAGE_KEY);}catch(e){}
+    renderRankList();
+  }
+}
+function escapeHtml(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+
+/* ---------- 画面遷移 ---------- */
+function showScreen(name){
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+  document.getElementById('screen-'+name).classList.add('active');
+  window.scrollTo(0,0);
+}
+function goTitle(){clearInterval(timerId);showScreen('title');}
+function retrySame(){if(curGenre)startGame(curGenre);}
+
+/* ---------- canvas 背景（動的リサイズ） ---------- */
+const canvas=document.getElementById('bgCanvas');
+const ctx=canvas.getContext('2d');
+const KANJI='漢字壱級鬱薔薇龍鳳凰禅墨筆雅麒麟翠'.split('');
+let drops=[],dpr=1;
+function resizeCanvas(){
+  dpr=window.devicePixelRatio||1;
+  canvas.width=Math.floor(window.innerWidth*dpr);
+  canvas.height=Math.floor(window.innerHeight*dpr);
+  canvas.style.width=window.innerWidth+'px';
+  canvas.style.height=window.innerHeight+'px';
+  ctx.setTransform(dpr,0,0,dpr,0,0);
+  // 文字数を画面幅に応じて再計算
+  const count=Math.max(10,Math.floor(window.innerWidth/40));
+  drops=[];
+  for(let i=0;i<count;i++){
+    drops.push({
+      x:Math.random()*window.innerWidth,
+      y:Math.random()*window.innerHeight,
+      size:14+Math.random()*22,
+      spd:.15+Math.random()*.45,
+      ch:KANJI[Math.floor(Math.random()*KANJI.length)],
+      a:.04+Math.random()*.10
+    });
+  }
+}
+function drawBg(){
+  ctx.clearRect(0,0,window.innerWidth,window.innerHeight);
+  drops.forEach(d=>{
+    ctx.font=`${d.size}px 'Shippori Mincho', serif`;
+    ctx.fillStyle=`rgba(212,175,55,${d.a})`;
+    ctx.fillText(d.ch,d.x,d.y);
+    d.y+=d.spd;
+    if(d.y>window.innerHeight+d.size){
+      d.y=-d.size;d.x=Math.random()*window.innerWidth;
+      d.ch=KANJI[Math.floor(Math.random()*KANJI.length)];
+    }
+  });
+  requestAnimationFrame(drawBg);
+}
+let resizeTO;
+window.addEventListener('resize',()=>{clearTimeout(resizeTO);resizeTO=setTimeout(resizeCanvas,120);});
+window.addEventListener('orientationchange',()=>setTimeout(resizeCanvas,200));
+
+/* ---------- 起動 ---------- */
 buildGenreCards();
+resizeCanvas();
+drawBg();
+// モーダル背景クリックで閉じる
+document.getElementById('modalBg').addEventListener('click',e=>{if(e.target.id==='modalBg')closeModal();});
 </script>
 </body>
 </html>
